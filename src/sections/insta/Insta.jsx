@@ -9,8 +9,6 @@ import { Autoplay, FreeMode } from 'swiper/modules';
 
 // Import Swiper styles
 import 'swiper/css';
-// import './insta.css';
-import './Insta.css';
 import InstaIcon from '../../assets/svg/insta-icon';
 
 
