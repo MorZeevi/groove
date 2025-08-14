@@ -8,6 +8,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, FreeMode } from 'swiper/modules'; 
 
 // Import Swiper styles
+import './insta.css';
 import 'swiper/css';
 import InstaIcon from '../../assets/svg/insta-icon';
 
