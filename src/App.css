@@ -52,8 +52,7 @@ html, body {
   font-size: 16px;
 
   ::selection {
-    background-color:var(--pink); /* Highlight background */
-  color: var(--dark-purple);
+    background-color:var(--pink); 
 }
 
 
