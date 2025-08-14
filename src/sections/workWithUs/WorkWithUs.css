@@ -1,0 +1,136 @@
+
+
+    .work-container-wrapper {
+    
+             height: 100vh;
+            width: 100vw;
+            grid-template-rows: repeat(12, 1fr);
+            line-height: 110%;
+            text-align: center;
+    }
+    
+    
+    
+    .work-with-us-wrapper {
+            grid-column: 8/ span 10;
+            grid-row: 4/9;
+            background-color: var(--bg-color);
+            display: grid;
+            /* grid-template: 1fr / 1fr; */
+            font-size: 10rem;
+            font-family: 'manhattan';
+        }
+
+        .work-with-us-wrapper > * {
+            grid-area: 1 / 1;
+            text-align: center;
+            line-height: 100%;
+        }
+
+        .work-with-us-des {
+           grid-column: 8/ span 10;
+            grid-row: 8;
+            text-align: center;
+        }
+
+        .title-outline {
+            color: transparent;
+            -webkit-text-stroke: 2px var(--dark-purple);
+            z-index: 5;
+            cursor: pointer;
+        }
+
+        .pink-layer, .blue-layer, .purple-layer, .yellow-layer, .dark-purple-layer {
+            clip-path: inset(100% 0% 0% 0%); /* All layers start hidden */
+            transition: clip-path 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .yellow-layer {
+            color: var(--yellow);
+            z-index: 1;
+        }
+
+        .pink-layer {
+            color: var(--pink);
+            z-index: 2;
+        }
+
+        .blue-layer {
+            color: var(--baby-blue);
+            z-index: 3;
+        }
+
+        .dark-purple-layer {
+            color: var(--dark-purple);
+            z-index: 4;
+        }
+
+   /* Progressive delays - each layer waits longer (jumping slowly effect) */
+        .title-outline:hover ~ .yellow-layer {
+            clip-path: inset(-2% 0% 0% 0%);
+            transition-delay: 0s; /* Yellow first - immediate */
+        }
+
+        .title-outline:hover ~ .pink-layer {
+            clip-path: inset(-2% 0% 0% 0%);
+            transition-delay: 0.1s; /* Pink second - short wait */
+        }
+
+        .title-outline:hover ~ .blue-layer {
+            clip-path: inset(-2% 0% 0% 0%);
+            transition-delay: 0.25s; /* Baby blue third - medium wait */
+        }
+
+        .title-outline:hover ~ .dark-purple-layer {
+            clip-path: inset(-2% 0% 0% 0%);
+            transition-delay: 0.45s; /* Dark purple last - long wait */
+        }
+
+        /* Smooth reset on mouse leave */
+        .work-with-us-wrapper:not(:hover) .yellow-layer,
+        .work-with-us-wrapper:not(:hover) .pink-layer,
+        .work-with-us-wrapper:not(:hover) .blue-layer,
+        .work-with-us-wrapper:not(:hover) .dark-purple-layer {
+            clip-path: inset(100% 0% 0% 0%);
+            transition-delay: 0.05s;
+        }
+
+        .star-bg {
+            background-image: url('../../assets/image/star_bg.png');
+            background-repeat: no-repeat;
+              background-size: contain;           /* Fills the element while keeping aspect ratio */
+            background-position: center;  
+
+              grid-column: 8/ span 10;
+            grid-row: 1/12;
+        }
+
+        #img-store-1 {
+                 grid-column:5 / span 4;
+            grid-row: 2/5;
+            transform: rotate(20deg);
+        }
+
+        #img-store-2 {
+                 grid-column: 16/ span 4;
+            grid-row: 9/12;
+             transform: rotate(-20deg);
+        }
+
+        #job-des1 {
+            font-size: 3vw;
+                   grid-column: 14/ span 5;
+            grid-row: 3 / 5;
+             z-index: 9;
+             transform: rotate(-30deg);
+             top: 25px;
+        }
+      #job-des2 {
+                   grid-column: 7/ span 6;
+            grid-row: 9;
+
+           font-size: 3vw;
+           z-index: 9;
+           transform: rotate(10deg);
+           top: 25px;
+        }

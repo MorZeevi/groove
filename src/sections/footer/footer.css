@@ -1,0 +1,45 @@
+.footer-container {
+    height: 50vh; 
+    width: 100vw;
+    background-color: var(--dark-purple);
+    color: var(--baby-blue);
+    display: flex;
+    align-items: center;
+
+    grid-template-rows: 40% 5% 20%;
+}
+
+.footer-logo {
+    grid-column: 2/ span 3;
+    font-size: 4vw;
+}
+
+.footer-des {
+    grid-column: 5/ span 9;
+}
+
+.instgram-icon-footer{
+     grid-column: 5/ span 9;
+}
+
+.newsletter-footer {
+     grid-column: 5/ span 12;
+}
+
+.form-wrapper {
+    display: flex;
+    gap: 2vw;
+    justify-content: space-between;
+}
+
+.form-wrapper button {
+    border-color: white;
+    color: white;
+     
+   
+}
+
+.form-wrapper button:hover {
+background-color: var(--pink);
+color: var(--dark-purple);
+}

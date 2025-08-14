@@ -1,0 +1,192 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  
+  
+}
+
+:root {
+    --font-base: 1rem;     
+  --font-small: 0.875rem; 
+  --font-large: 1.25rem;   
+
+  
+  --bg-color: #3FBFAF9;
+  --text-color: #1C1456;
+    --dark-purple: #1c1456;
+    --baby-blue: #b3e6ff;
+    --purple: #c7b3ff;
+    --yellow: #f7e273;
+    --pink: #ffc1c2;
+    --error: #ff6669;
+    --layout-columns-count: 24;
+    --layout-columns-gap: 1.25vw;
+    --layout-margin: 2.0833333333vw;
+    --header-height: 12.8rem;
+    --centerOfCurveText: 60%;
+    --heightCharOfCurveText: 140%;
+    --layout-width: calc(100vw - (2 * var(--layout-margin)));
+    --layout-column-width: calc((var(--layout-width) - ((var(--layout-columns-count) - 1) * var(--layout-columns-gap))) / var(--layout-columns-count));
+}
+
+@font-face {
+  font-family: 'futurism';
+  src: url('../src/fonts/Futurism.woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'manhattan';
+  src: url('../src/fonts/Manhattan.woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+html, body {
+  background-color: var(--bg-color);
+  color: var(--text-color); 
+  overflow-x: hidden;
+  direction: rtl;
+  font-size: 16px;
+
+  ::selection {
+    background-color:var(--pink); /* Highlight background */
+  color: var(--dark-purple);
+}
+
+
+}
+
+.layout-grid {
+ display: grid;
+  grid-template-columns: repeat(var(--layout-columns-count), minmax(0, 1fr));
+  grid-gap: var(--layout-columns-gap);
+  margin-left: auto;
+  margin-right: auto;
+  /* Add padding equal to half of your grid gap for visual balance */
+  padding-left: calc(var(--layout-columns-gap));
+  padding-right: calc(var(--layout-columns-gap));
+  box-sizing: border-box;
+}
+
+h1 {
+  font-family: manhattan;
+  font-size: 11vw;
+   line-height: 110%;
+}
+
+h2 {
+  font-family: manhattan;
+  font-size: 6vw;
+  line-height: 110%;
+}
+
+h3 {
+  font-family: manhattan;
+  font-size: 3vw;
+}
+
+h4 {
+    font-family: futurism;
+  font-size: 2vw;
+}
+
+body {
+  font-family: futurism;
+  font-size: 1.5vw;
+}
+
+
+img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+button {
+  background-color: transparent;
+  cursor: pointer;
+
+}
+
+button:hover,
+button:focus {
+    outline: none;
+    border-color: transparent;
+  
+}
+
+.button-yellow {
+  background-color: var(--yellow);
+  border-width: 2px;
+  border-color: var(--dark-purple);
+}
+
+
+.sticker-text {
+  position: relative;
+  display: inline-block;
+  font-family: manhattan;
+
+  line-height: 1;
+  text-align: center;
+}
+
+
+/* White outline ("sticker" edge) */
+.sticker-text::before {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  
+  color: transparent;
+  z-index: -1;
+}
+
+/* Drop shadow for depth */
+.sticker-text::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  color: inherit;
+  text-shadow:
+    0.07em 0.08em 0.05em rgba(0, 0, 0, 0.75),
+   -0.07em -0.05em 0.05em rgba(0, 0, 0, 0.75);
+  z-index: -2;
+}
+
+.sticker-pink::before {
+-webkit-text-stroke: 0.21em var(--pink);
+}
+
+
+.sticker-yellow::before {
+-webkit-text-stroke: 0.21em var(--yellow);
+}
+
+
+/* 
+.sticker-text {
+	position: relative;
+	-webkit-text-stroke: 2px var(--yellow);
+	filter: drop-shadow(1px 1px 0px rgba(182, 174, 174, 0.15));
+	line-height: 1;
+}
+
+.sticker-text:after {
+	content: attr(data-text);
+	position: absolute;
+	display: inherit;
+	top: 0;
+	left: 0;
+	-webkit-text-stroke: initial;
+
+} */
