@@ -1,5 +1,4 @@
 import { useState } from 'react';
-// import Header from './sections/header/Header';
 import Hero from './sections/hero/Hero';
 import Gallery from './sections/gallery/Gallery';
 import BestSeller from './sections/best-seller/BestSeller';
@@ -14,7 +13,6 @@ function App() {
 
   return (
     <>
-    {/* <Header /> */}
        <Hero /> 
       <Gallery /> 
      <BestSeller />  
