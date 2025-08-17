@@ -1,0 +1,7 @@
+.header-navigation-wrapper {
+  height: 5rem; 
+  position: sticky;
+  background-color: pink;
+  z-index: 999;
+  top:0;
+}
