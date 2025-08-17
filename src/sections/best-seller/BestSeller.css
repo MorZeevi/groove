@@ -5,10 +5,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    padding-bottom: 50vh;
     position: relative;
-    /* Create a curved bottom using polygon */clip-path: ellipse(111vw 80vw at 50% -20vw);
+    clip-path: ellipse(111vw 100vw at 50% -60vh);
 }
 
 
@@ -19,7 +17,7 @@
    width: 100%;
    height: 100%;
       grid-column: 9/ span 8;
-    grid-row: 2/4;
+    grid-row: 3/4;
 }
 
 
@@ -28,7 +26,7 @@
     display: flex;
     align-items: center;
     grid-column: 3/ span 20;
-    grid-row: 2/4;
+    grid-row: 3/4;
     height: 100%;
     width: 100%;
     /* padding: 10%; */
@@ -41,14 +39,16 @@
 /* //add roes to the main grid */
 
 .content-wrapper {
-    grid-template-rows: auto auto 1fr auto;
+    grid-template-rows:10vh 15vh 1fr 0.5fr 20vh;
     height: 100%;
 }
 
 #pizza-title{
      grid-column: 9 / span 8;
-    grid-row: 1;
+    grid-row: 2;
     text-align: center;
+    position: relative;
+    z-index: 99;
 }
 
 #next-arrow {
@@ -56,6 +56,11 @@
     grid-column: 7/span 3;
     rotate: 180deg;
       z-index: 99;
+}
+
+#next-arrow:hover {
+   border-color: transparent;
+   background-color: none;
 }
 
 #next-arrow img {
@@ -83,7 +88,7 @@ height:100%;
      grid-row: 3;
       grid-column: 10 / span 4;
       transform: rotate(20deg);
-      top: 10%;
+      top: 5%;
 }
 
 .swiper {

@@ -94,10 +94,10 @@ export default function Locations() {
         if (paths.length > 0) {
             tl.to(paths, {
                 strokeDashoffset: 0,
-                duration: 0.5,
+                duration: 0.4,
                 ease: "power2.inOut",
-                stagger: 0.3
-            });
+                stagger: 0.1
+            }, "-=1");
         }
 
         // Map circles animations
@@ -105,10 +105,10 @@ export default function Locations() {
             tl.to(circles, {
                 scale: 1,
                 opacity: 1,
-                duration: 0.8,
+                duration: 0.5,
                 ease: "back.out(1.7)",
                 stagger: 0.2
-            }, "-=0.5");
+            }, "-=1");
         }
 
         // Map texts animations
@@ -135,7 +135,7 @@ export default function Locations() {
             scale: 1,
             duration: 0,
             ease: "power2.out",
-        }, "<");
+        }, "-=1");
 
         // Second image - reveal from right to left
         tl.fromTo(img2ContainerRef.current, {
@@ -144,7 +144,7 @@ export default function Locations() {
             clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)",
             duration: 1.2,
             ease: "power2.inOut",
-        }, "-=0.8")
+        }, "-=1")
         .to(img2Ref.current, {
             scale: 1,
             duration: 1,
@@ -152,28 +152,27 @@ export default function Locations() {
         }, "<").fromTo(".store-text", {
             autoAlpha: 0,
             y: 30,
+           
         }, {
             autoAlpha: 1,
             y: 0,
             duration: 0.5,
             ease: "power2.out",
-        }, "-=0.5");
+        }, "-=1");
 
          // Location description - fun pop animation
         tl.fromTo(".location-description", {
             autoAlpha: 0,
             scale: 0,
-            rotation: -15,
             transformOrigin: "center center",
         }, {
             autoAlpha: 1,
             scale: 1,
-            rotation: 0,
             duration: 0.6,
-            ease: "back.out(3)",
+           ease: "power2.out",
         }, "-=0.4")
         .to(".location-description", {
-            rotation: 3,
+            rotation: 15,
             duration: 0.15,
             ease: "power2.inOut",
             yoyo: true,

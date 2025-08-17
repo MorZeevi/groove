@@ -16,19 +16,36 @@ export default function Hero() {
     const hero = useRef(); 
     const recordRef = useRef();
     const spanRef = useRef();
+    const contentWrapperRef = useRef();
+    const heroImgRef = useRef();
+
 
     useGSAP(() => {
+
+     // Hide hero image initially
+        gsap.set(heroImgRef.current, {
+            opacity: 0,
+            scale: 0.8,
+        });
+
+
         const splitText = new SplitText("#title-h1", {
             type: "words, chars",
         });
 
+        const subTitleSplit = new SplitText(".subtitle-hero", {
+            type: "lines, words"
+        })
+
         const lastWord = splitText.words[splitText.words.length - 1];
         
-        gsap.set(splitText.chars, {
-            scale: 0,
-            autoAlpha: 0,
-            transformOrigin: "center center",
-        });
+
+        gsap.set(".CTA-btn", { autoAlpha: 0, y: 24, willChange: "transform, opacity" });
+
+
+
+   
+
 
         const tl = gsap.timeline();
 
@@ -60,7 +77,42 @@ export default function Hero() {
             rotation: 0,        
             duration: 1.2,            
             ease: "bounce.out",
-        }, "-=0.6")
+        }, "-=0.6")  // PHASE 2: Move content wrapper to the right side
+        .to(contentWrapperRef.current, {
+       
+            x: '-50vw',
+            y: 0,
+            duration: 1.5,
+            ease: "power2.inOut",
+        }, "+=0.5")// 🎵 PHASE 3: Hero image reveal from right
+.fromTo(heroImgRef.current, {
+    x: "100%",
+    opacity: 0,
+    scale: 0.8,
+}, {
+    x: "0%",
+    opacity: 1,
+    scale: 1,
+    duration: 1.4,
+    ease: "power3.out",
+}, "-=1").from(subTitleSplit.lines, {
+ duration: 0.6,
+        yPercent: 100,
+        opacity: 0,
+        stagger: 0.1,
+        ease: "expo.out",
+}).fromTo(".CTA-btn",
+  { autoAlpha: 0, y: 24 },                 // start slightly below + hidden
+  { autoAlpha: 1, y: 0, duration: 0.6, ease: "expo.out" },
+  ">+0.1"                                  // after subtitle finishes
+).to(".CTA-btn", {
+  yPercent: 100,                           // slide out (down) by its own height
+  duration: 0.6,
+  ease: "expo.in",
+  // clearProps: "transform"    // optional: remove inline transform after
+}, "-=0.5");     
+
+
 
 
 
@@ -78,7 +130,7 @@ const q = gsap.utils.selector(hero);
 
 // תוכן שמאלה
 gsap.fromTo(
-  q(".hero-content"),
+  q(".hero-img"),
   { xPercent: 0, rotation: 0 },
   {
   xPercent: 70,
@@ -94,8 +146,9 @@ gsap.fromTo(
 );
 
 // תמונה ימינה
+// תוכן שמאלה
 gsap.fromTo(
-  q(".hero-img"),
+  q(".hero-content"),
   { xPercent: 0, rotation: 0 },
   {
   xPercent: -70,
@@ -104,11 +157,12 @@ gsap.fromTo(
     scrollTrigger: {
       trigger: hero.current,
       start: "top top",
-      end: pinST.end,
-      scrub: 0.2
+      end: pinST.end,       // אותו טווח כמו ה-pin
+      scrub: 0.2            // או true
     }
   }
 );
+
 
 // אחרי טעינת תמונות/פונטים – לרענן:
 window.addEventListener("load", () => ScrollTrigger.refresh());
@@ -116,7 +170,7 @@ window.addEventListener("load", () => ScrollTrigger.refresh());
     
     return (<>
         <div className="hero-container" ref={hero}>
-            <div className="hero-content-wrapper box layout-grid">
+            <div className="hero-content-wrapper box layout-grid" ref={contentWrapperRef}>
                 <div className="hero-content">
                     <h1 id="title-h1">
                         <span>לגרוב גרביים</span>
@@ -130,7 +184,7 @@ window.addEventListener("load", () => ScrollTrigger.refresh());
                         style={{ 
                             position: 'absolute',
                             top: '46%',
-                            right: '37%', 
+                            right: '52%', 
                             width: '110px',
                             height: '110px',
                         }}
@@ -146,7 +200,7 @@ window.addEventListener("load", () => ScrollTrigger.refresh());
                         />
                     </div>
 
-                            <div>
+                            <div className="subtitle-hero">
                     גרביים מגניבות, איכותיות במגוון צבעים וצורות. <br />
                     איכות פרימיום, ללא ניצול ו100% כותנה אורגנית.
                 </div>
@@ -157,7 +211,7 @@ window.addEventListener("load", () => ScrollTrigger.refresh());
                 </div>
             </div>
             
-            <div className="box hero-img">
+            <div className="box hero-img" ref={heroImgRef}>
                 <img src={heroImg} alt="Hero-image-pepole-on-bike" /> 
             </div>
         </div>

@@ -8,7 +8,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, FreeMode } from 'swiper/modules'; 
 
 // Import Swiper styles
-import './Insta.css';
+import './insta.css';
 import 'swiper/css';
 import InstaIcon from '../../assets/svg/insta-icon';
 
@@ -30,18 +30,18 @@ import insta10 from '../../assets/image/instgram/insta_10.png';
 
 export default function InstagramSlider() {
   // Array of images with their custom styles
-  const slides = [
-    { img: insta1, size: '18vw', top: '-10%' },
-    { img: insta2, size: '15vw', top: '50%' },
-    { img: insta3, size: '21vw', bottom: '-5%' },
-    { img: insta4, size: '13.5vw', top: '30%' },
-    { img: insta5, size: '19.5vw', bottom: '20%' },
-    { img: insta6, size: '16.5vw', top: '-8%' },
-    { img: insta7, size: '19vw', bottom: '10%' },
-    { img: insta8, size: '14vw', top: '45%' },
-    { img: insta9, size: '20vw', top: '-5%' },
-    { img: insta10, size: '16vw', bottom: '-5%' }
-  ];
+const slides = [
+  { img: insta1, size: '22vw', top: '-25%' },   // big + high
+  { img: insta2, size: '14vw', top: '65%' },    // small + low
+  { img: insta3, size: '28vw', bottom: '-20%' },// very big + pushed down
+  { img: insta4, size: '18vw', top: '20%' },    // medium
+  { img: insta5, size: '22vw', bottom: '20%' }, // larger + far down
+  { img: insta6, size: '12vw', top: '-5%' },   // tiny + way up
+  { img: insta7, size: '35vw', bottom: '15%' }, // very big + mid-low
+  { img: insta8, size: '16vw', top: '75%' },    // medium-small + very low
+  { img: insta9, size: '25vw', top: '10%' },   // large + very high
+  { img: insta10, size: '10vw', bottom: '25%' } // small + very low
+];
 
   const instaWrapper = React.useRef();
 
@@ -83,14 +83,11 @@ export default function InstagramSlider() {
         </h2>
 
         <button className="follow-us-btn white-btn">
-          <span>
-          עקבו אחרינו
-          </span>
-
-          <div className="insta-icon-wrapper">
-          <InstaIcon />
+          <div className="follow-left">עקבו אחרינו</div>
+          <div className="divider" aria-hidden="true"></div>
+          <div className="follow-right insta-icon-wrapper">
+            <InstaIcon />
           </div>
-           
         </button>
       </div>
 

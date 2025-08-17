@@ -110,7 +110,6 @@ button {
 
 }
 
-button:hover,
 button:focus {
     outline: none;
     border-color: transparent;
@@ -170,22 +169,3 @@ button:focus {
 .sticker-yellow::before {
 -webkit-text-stroke: 0.21em var(--yellow);
 }
-
-
-/* 
-.sticker-text {
-	position: relative;
-	-webkit-text-stroke: 2px var(--yellow);
-	filter: drop-shadow(1px 1px 0px rgba(182, 174, 174, 0.15));
-	line-height: 1;
-}
-
-.sticker-text:after {
-	content: attr(data-text);
-	position: absolute;
-	display: inherit;
-	top: 0;
-	left: 0;
-	-webkit-text-stroke: initial;
-
-} */

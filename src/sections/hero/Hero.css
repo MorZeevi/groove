@@ -5,14 +5,14 @@
 
 .hero-img {
    position: absolute;
-   width: 50%;
+   width: 50vw;
    height: 100vh;
    top: 0;
-   left: 0;
+   right: 0;
 }
 
 .hero-content {
-   grid-column: 1/span 11;
+   grid-column: 2/span 8;
    height: 100%;
 
    display: flex;
@@ -22,9 +22,36 @@
 }
 
 .CTA-btn {
-  width: 50%;
+  width: 80%;
 padding: 1vh;
 }
+
+
+.CTA-btn {
+   transition: background 0.4s ease, color 0.4s ease;
+}
+
+
+/* gradient hover */
+.CTA-btn:hover {
+  background: linear-gradient(
+    45deg,
+    var(--baby-blue),
+    var(--purple),
+    var(--pink)
+  );
+  background-size: 400% 400%;
+  animation: gradientShift 6s ease infinite;
+
+}
+
+
+@keyframes gradientShift {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
 
 .hero-content-wrapper {
    height: 100%;

@@ -11,6 +11,7 @@ import img3 from '../../assets/image/gallery/img_3.png';
 import img4 from '../../assets/image/gallery/img_4.png';
 import img5 from '../../assets/image/gallery/img_5.png';
 import img6 from '../../assets/image/gallery/img_6.png';
+import recordImg from '../../assets/image/record.png';
 import afterSocks from '../../assets/image/after.png';
 import beforeSocks from '../../assets/image/before.png';
 
@@ -106,7 +107,7 @@ export default function Gallery() {
 
       // Animate the text along the path
       tl.fromTo(textPath, {
-        attr: { startOffset: "190%" }
+        attr: { startOffset: "200%" }
       }, {
         attr: { startOffset: "-80%" },
         ease: "none"
@@ -117,7 +118,7 @@ export default function Gallery() {
     const images = galleryRef.current?.querySelectorAll('img');
     if (images) {
       let skewSetter = gsap.quickTo(images, "skewY");
-      let clamp = gsap.utils.clamp(-20, 20);
+      let clamp = gsap.utils.clamp(-10, 10);
       let currentVelocity = 0;
       let scrollTimeout;
 
@@ -127,7 +128,7 @@ export default function Gallery() {
         end: "bottom top",     
         onUpdate: (self) => {
           currentVelocity = self.getVelocity();
-          skewSetter(clamp(currentVelocity / -20));
+          skewSetter(clamp(currentVelocity / -10));
           
           clearTimeout(scrollTimeout);
           scrollTimeout = setTimeout(() => {
@@ -138,13 +139,15 @@ export default function Gallery() {
           skewSetter(0);
         },
         onEnterBack: () => {
-          skewSetter(clamp(currentVelocity / -20));
+          skewSetter(clamp(currentVelocity / -10));
         },
         onLeaveBack: () => {
           skewSetter(0);
         }
       });
     }
+
+
 
     // Comparison section animation
     const comparisonSection = comparisonSectionRef.current;
@@ -180,6 +183,12 @@ export default function Gallery() {
     
   }, { scope: containerRef });
 
+  const colors = ["var(--pink)", "var(--purple)", "var(--baby-blue)", "var(--yellow)"];
+const text = 'מעוצבות על ידי מעצבים מקומיים |🧶 100% כותנה מצרית | 👃🏻 מנדפות ריח |🧘🏽‍♀️ אורתופדיות'
+
+const parts = text.split("|").map(s => s.trim()).filter(Boolean);
+
+
   return (
     <>
       {/* Add some content before container to test the effect */}
@@ -214,22 +223,52 @@ export default function Gallery() {
             </defs>
             
             
-            {/* Text with inline styles */}
+
+
+<text className="text-benefits" direction="rtl" unicodeBidi="plaintext">
+  <textPath ref={textPathRef} href="#textPath1" dominantBaseline="baseline">
+    {parts.map((phrase, i) => (
+      <tspan key={i} style={{
+          fill: colors[i % colors.length],
+          textShadow: `0 0 2px ${colors[i % colors.length]}` // use same color for glow
+        }}>
+        {phrase + " "}
+      </tspan>
+    ))}
+  </textPath>
+</text>
+
+            {/* Text with inline styles
             <text className="text-benefits">
               <textPath 
                 ref={textPathRef}
                 href="#textPath1" 
-                   ominantBaseline="baseline"
+                ominantBaseline="baseline"
               >
-               איכות פרימיום   ⭐ 100% כותנה ממוחזרת   ⭐     מעוצבים על ידי מעצבים מקומיים    ⭐       מתנה מגניבה
+    
+       
+              
+               איכות פרימיום   📢 100% כותנה ממוחזרת   ‧₊˚♪ 𝄞₊˚⊹     מעוצבים על ידי מעצבים מקומיים     <img src={recordImg} /> ⭐       מתנה מגניבה
               </textPath>
 
+                      <textPath 
+                ref={textPathRef}
+                href="#textPath1" 
+                ominantBaseline="baseline"
+              >
+    
+       
+              
+         בבב
+              </textPath> */}
+
+
           
-            </text>
+            {/* </text> */}
           </svg>
         </div>
 
-        <h3 className="galley-des">מה אנחנו הכי אוהבים בגרביים שלנו</h3>
+        <h2 className="galley-des">מה אנחנו הכי אוהבים בגרביים שלנו</h2>
         
         <div className="gallery-container">
           <section ref={galleryRef} className="my-gallery layout-grid">

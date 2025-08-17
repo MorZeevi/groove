@@ -1,6 +1,11 @@
 .gallery-container {
-    min-height: 200vh;
+    min-height: 220vh;
+    
     /* margin-top: -80vh; */
+}
+
+.my-gallery {
+grid-row-gap: 20rem !important;
 }
 
 
@@ -39,7 +44,6 @@
 
 .pairs-img {
 
-  margin-top: 10vh;
     width: 100%;
   height: 100%;
 }
@@ -54,11 +58,11 @@
   position: absolute;
   overflow: hidden;
   top: 0;
-  transform: translate(100%, 0px);
+  /* transform: translate(100%, 0px); */
 }
-.afterImage img {
+/* .afterImage img {
   transform: translate(-100%, 0px);
-}
+} */
 
 .pairs-img img {
   width: 100%;
@@ -79,9 +83,10 @@
 
 
 
-    .text-benefits textPath{
+    .text-benefits  textPath {
           font-size: 8vw;
           font-family: manhattan;
-          fill: var(--dark-purple);
-  
+          /* fill: var(--purple); */
+          letter-spacing: 0.3rem;
+          
         }
