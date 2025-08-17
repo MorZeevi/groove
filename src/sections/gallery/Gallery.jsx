@@ -197,7 +197,7 @@ const parts = text.split("|").map(s => s.trim()).filter(Boolean);
       </div> */}
 
       {/* Main Container with relative positioning */}
-      <div ref={containerRef} style={{ position: 'relative', minHeight: '200vh' }}>
+      <div id="about-socks" ref={containerRef} style={{ position: 'relative', minHeight: '200vh' }}>
         {/* SVG Text Path Container - will be fixed only within containerRef */}
         <div 
           ref={svgContainerRef}

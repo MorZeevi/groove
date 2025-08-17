@@ -174,7 +174,7 @@ export default function WorkWithUs() {
     }, []);
 
     return (
-        <div className="layout-grid work-container-wrapper" ref={containerRef}>
+        <div id="work-with-us" className="layout-grid work-container-wrapper" ref={containerRef}>
             <div className="star-bg" />
 
             <div 

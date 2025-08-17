@@ -190,7 +190,7 @@ gsap.fromTo(
 
 
     return (
-        <div className="best-container">
+        <div id="new-collection" className="best-container">
             <div className="content-wrapper layout-grid">
                 <h2 id="pizza-title">חדש! גרבי פיצה</h2>
                 

@@ -50,6 +50,7 @@ color: var(--dark-purple);
 
 .footer-icon-wrapper {
     display: flex;
+    justify-content: center;
     flex-direction: column;
  width: 35px;
 
@@ -63,7 +64,7 @@ color: var(--dark-purple);
     gap: 0.2rem;
      grid-column: 5/ span 10;
      grid-row: 3;
-      gap: 5rem;
+      gap: 6rem;
 
       margin-top: 5rem;
 }

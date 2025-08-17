@@ -8,7 +8,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, FreeMode } from 'swiper/modules'; 
 
 // Import Swiper styles
-import './Insta.css';
+import "./Insta.css";
 import 'swiper/css';
 import InstaIcon from '../../assets/svg/insta-icon';
 
@@ -75,7 +75,7 @@ const slides = [
 
 
   return (
-    <div ref={instaWrapper} className="insta-wrapper">
+    <div ref={instaWrapper} id="instush" className="insta-wrapper">
       <div className="insta-content">
         <h2 className="insta-title">כל שבוע גרביים
           <br />

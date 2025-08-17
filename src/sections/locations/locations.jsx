@@ -189,7 +189,7 @@ export default function Locations() {
     }, { scope: locationWrapperRef.current });
 
     return (
-        <div ref={locationWrapperRef} className="locations-wrapper layout-grid">
+        <div ref={locationWrapperRef} id="location" className="locations-wrapper layout-grid">
             <h2 className="location-title">בואו לגרוב איתנו <br/>
             בחנות הקרובה לביתכם</h2>
             

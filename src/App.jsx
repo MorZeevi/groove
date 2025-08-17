@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import Header from '../src/sections/header/HeaderNavigation';
 import Hero from './sections/hero/Hero';
 import Gallery from './sections/gallery/Gallery';
 import BestSeller from './sections/best-seller/BestSeller';
@@ -13,6 +14,7 @@ function App() {
 
   return (
     <>
+    <Header />
        <Hero /> 
       <Gallery /> 
      <BestSeller />  

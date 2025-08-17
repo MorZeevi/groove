@@ -1,7 +1,283 @@
-.header-navigation-wrapper {
-  height: 5rem; 
-  position: sticky;
-  background-color: pink;
-  z-index: 999;
-  top:0;
+/* Navigation Component Styles */
+
+/* Base styles */
+.navigation-header {
+        position: fixed;
+        top: 0;
+        z-index: 99;
+        width: 100%;
+
+      
+}
+
+.navigation-area {
+  background-color: transparent;
+}
+
+.container-xl {
+  max-width: 90;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.flex-bunch {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 15px;
+  flex-direction: row;
+}
+
+.header-main {
+  display: block;
+  width: auto;
+  justify-content: flex-start;
+  align-items: flex-start;
+  background-color: transparent;
+}
+
+.nav-brand {
+  display: table;
+  text-decoration: none;
+  color: inherit;
+  font-size: 3rem;
+  color: var(--dark-purple);
+}
+
+
+.nav-brand span{
+  font-size: 3rem;
+  color: var(--pink);
+}
+
+.nav-brand:hover {
+  text-decoration: none;
+}
+
+.br-toggle {
+  display: none;
+  padding: 0;
+}
+
+.btn-access {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 24px;
+  height: 18px;
+  position: relative;  /* For absolute positioning of lines */
+}
+
+.hamburger-line {
+  width: 100%;
+  height: 2px;
+  background-color: #333;
+  transition: all 0.3s ease;
+  position: absolute;  /* Better control for animation */
+}
+
+/* Position hamburger lines properly */
+.hamburger-line.line-1 {
+  top: 0;
+}
+
+.hamburger-line.line-2 {
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.hamburger-line.line-3 {
+  bottom: 0;
+}
+
+/* Hamburger animation */
+.hamburger-line.line-1.open {
+  transform: rotate(45deg);
+  top: 50%;
+  transform-origin: center;
+}
+
+.hamburger-line.line-2.open {
+  opacity: 0;
+}
+
+.hamburger-line.line-3.open {
+  transform: rotate(-45deg);
+  bottom: 50%;
+  transform-origin: center;
+}
+
+.navigation-inner-items {
+  background-color: transparent;
+  height: auto;
+  overflow: visible;
+  clip-path: none;
+  transition: none;
+  /* width: 50%; */
+  display: flex;
+  justify-content: center;
+}
+
+.navbar-parent {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  flex-direction: row;
+}
+
+.nav-items {
+  padding: 10px 15px;
+  cursor: pointer;
+  width: auto;
+  opacity: 1;
+  transform: translateX(0);
+  transition: background-color 0.3s ease;
+}
+
+/* Style the links inside nav items */
+.nav-items a {
+  text-decoration: none;
+  color: var(--dark-purple);
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.nav-items a:hover {
+  color: var(--purple);
+   text-decoration: underline;
+}
+
+
+.nav-items:hover {
+  text-decoration: underline;
+  border-radius: 4px;
+}
+
+/* Desktop styles */
+@media (min-width: 992px) {
+  .navigation-area {
+    background-color: transparent;
+  }
+  
+  /* Ensure sticky works on desktop */
+  .navigation-header {
+    position: fixed;
+    top: 0;
+    z-index: 99;
+  }
+}
+
+/* Mobile styles */
+@media (max-width: 991px) {
+  /* Ensure sticky works on mobile */
+  .navigation-header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background-color:transparent;
+  }
+  
+  .flex-bunch {
+    flex-direction: column;
+
+    padding: 0;
+  }
+  
+  .header-main {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    background-color: antiquewhite;
+    padding: 10px 10px;  /* Add some padding */
+  }
+  
+  .br-toggle {
+    display: block;
+    padding: 10px 15px;
+  }
+  
+  .navigation-inner-items {
+    position: fixed;  /* Fixed positioning for mobile menu */
+    top: 60px;  /* Below the header */
+    left: 0;
+    right: 0;
+    background-color: antiquewhite;
+    height: 0;
+    overflow: hidden;
+    clip-path: circle(0% at top right);
+    transition: clip-path 0.5s ease-in-out, height 0.3s ease;
+    width: 100%;
+  }
+  
+  .navbar-parent {
+    flex-direction: column;
+    padding: 20px 0;
+  }
+  
+  .nav-items {
+    width: 100%;
+    margin: 0 !important;
+    padding: 15px 20px;
+    opacity: 0;
+    transform: translateX(50px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+  
+  
+  .nav-items a {
+    display: block;
+    width: 100%;
+  }
+}
+
+/* Mobile menu open state */
+@media (max-width: 991px) {
+  .navigation-header.menu-open .navigation-inner-items {
+    height: calc(100vh - 60px);  /* Full height minus header */
+    clip-path: circle(150% at top right);
+    overflow-y: auto;  /* Allow scrolling if content is too long */
+  }
+  
+  .navigation-header.menu-open .nav-items {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  
+  .navigation-header.menu-open .child-one {
+    transition-delay: 0.1s;
+  }
+  
+  .navigation-header.menu-open .child-two {
+    transition-delay: 0.2s;
+  }
+  
+  .navigation-header.menu-open .child-three {
+    transition-delay: 0.3s;
+  }
+  
+  .navigation-header.menu-open .child-four {
+    transition-delay: 0.4s;
+  }
+  
+  .navigation-header.menu-open .child-five {
+    transition-delay: 0.5s;
+  }
+}
+
+/* Prevent body scroll when mobile menu is open */
+body.menu-open {
+  overflow: hidden;
+}
+
+/* Add smooth scrolling for the whole page */
+html {
+  scroll-behavior: smooth;
 }
