@@ -20,19 +20,19 @@ export default function Footer() {
 
   <div className="icons-footer">
 
-<div  class="footer-icon-wrapper">
+<div  className="footer-icon-wrapper">
 <a href="https://www.instagram.com/mor_iz/" target="_blank">
   <InstaIcon />
 </a>
-<span class="instagram-icon-footer">אינסטגרם</span>
+<span className="instagram-icon-footer">אינסטגרם</span>
 </div>
 
-<div class="footer-icon-wrapper">
+<div className="footer-icon-wrapper">
 
 <a href="https://wa.me/972522937174" target="_blank" >
   <IconWhatsapp />
 </a>
-<span class="instagram-icon-footer">לוואטסאפ</span>
+<span className="instagram-icon-footer">לוואטסאפ</span>
 </div>
 </div>
   {/*

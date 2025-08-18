@@ -1,7 +1,9 @@
 .gallery-container {
     min-height: 220vh;
-    
-    /* margin-top: -80vh; */
+}
+
+#about-socks {
+  margin-top: -30vh;
 }
 
 .my-gallery {
@@ -73,7 +75,7 @@ grid-row-gap: 20rem !important;
 
 .galley-des {
   text-align: center;
-  margin-bottom: 12%;;
+  margin-bottom:30% ;
 }
 
 .benefits-content {

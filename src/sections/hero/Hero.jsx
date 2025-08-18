@@ -3,6 +3,7 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { SplitText } from 'gsap/SplitText';
 import { useGSAP } from '@gsap/react';
+import { useResponsiveGSAP } from '../../hooks/useResponsiveGSAP';
 
 import recordImg from '../../assets/image/record.png';
 import heroImg from '../../assets/image/hero-img.png';
@@ -20,8 +21,8 @@ export default function Hero() {
     const heroImgRef = useRef();
 
 
-    useGSAP(() => {
-
+    useResponsiveGSAP(({isDesktop, isTablet, isMobile }) => {
+        
      // Hide hero image initially
         gsap.set(heroImgRef.current, {
             opacity: 0,
@@ -42,11 +43,6 @@ export default function Hero() {
 
         gsap.set(".CTA-btn", { autoAlpha: 0, y: 24, willChange: "transform, opacity" });
 
-
-
-   
-
-
         const tl = gsap.timeline();
 
         tl.fromTo(splitText.chars, {     
@@ -60,12 +56,15 @@ export default function Hero() {
             stagger: 0.05,   
             ease: "back.out(1.7)",
         })
-        .to(lastWord, {
-            x: -100,
+        if (isDesktop) {
+tl.to(lastWord, {
+            x: isMobile ? -70 : -100,
             duration: 0.8,
             ease: "power2.out",
         }, "+=0.3")
-        .fromTo(recordRef.current, {
+        }
+        
+        tl.fromTo(recordRef.current, {
             y: -400,
             opacity: 0,
             scale: 0.3,
@@ -77,15 +76,17 @@ export default function Hero() {
             rotation: 0,        
             duration: 1.2,            
             ease: "bounce.out",
-        }, "-=0.6")  // PHASE 2: Move content wrapper to the right side
-        .to(contentWrapperRef.current, {
-       
+        }, "-=0.6") 
+        if (isDesktop) {
+            tl.to(contentWrapperRef.current, {
             x: '-50vw',
             y: 0,
             duration: 1.5,
             ease: "power2.inOut",
-        }, "+=0.5")// 🎵 PHASE 3: Hero image reveal from right
-.fromTo(heroImgRef.current, {
+        }, "+=0.5")
+        } // PHASE 2: Move content wrapper to the right side
+        // 🎵 PHASE 3: Hero image reveal from right
+tl.fromTo(heroImgRef.current, {
     x: "100%",
     opacity: 0,
     scale: 0.8,
@@ -151,7 +152,7 @@ gsap.fromTo(
   q(".hero-content"),
   { xPercent: 0, rotation: 0 },
   {
-  xPercent: -70,
+//   xPercent: -70,
       rotation: -30,
     ease: "none",
     scrollTrigger: {
@@ -175,19 +176,15 @@ window.addEventListener("load", () => ScrollTrigger.refresh());
                     <h1 id="title-h1">
                         <span>לגרוב גרביים</span>
                        <br />
+                       <div className="second-line-title">
                         <span ref={spanRef}>מלאות</span>
                         <span> בגרוב</span>
+                        </div>
                     </h1>
                     
                     <div 
+                    id="record-wrapper"
                         ref={recordRef}
-                        style={{ 
-                            position: 'absolute',
-                            top: '46%',
-                            right: '52%', 
-                            width: '110px',
-                            height: '110px',
-                        }}
                     >
                         <img 
                             src={recordImg} 
@@ -205,7 +202,7 @@ window.addEventListener("load", () => ScrollTrigger.refresh());
                     איכות פרימיום, ללא ניצול ו100% כותנה אורגנית.
                 </div>
                 
-                <button className="CTA-btn button-yellow">
+                <button className="CTA-btn">
                     לגרבי הפיצה החדשות שלנו!
                 </button>
                 </div>

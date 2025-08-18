@@ -12,7 +12,7 @@
   --font-large: 1.25rem;   
 
   
-  --bg-color: #3FBFAF9;
+  --bg-color: #fbfaf9;
   --text-color: #1C1456;
     --dark-purple: #1c1456;
     --baby-blue: #b3e6ff;
@@ -72,29 +72,30 @@ html, body {
 
 h1 {
   font-family: manhattan;
-  font-size: 11vw;
+   font-size: clamp(100px, 11vw, 180px); 
    line-height: 110%;
+   
 }
 
 h2 {
   font-family: manhattan;
-  font-size: 6vw;
+  font-size: clamp(60px, 6vw, 96px);
   line-height: 110%;
 }
 
 h3 {
   font-family: manhattan;
-  font-size: 3vw;
+   font-size: clamp(36px, 3vw, 96px);
 }
 
 h4 {
     font-family: futurism;
-  font-size: 2vw;
+   font-size: clamp(18px, 2vw, 32px);
 }
 
 body {
   font-family: futurism;
-  font-size: 1.5vw;
+   font-size: clamp(16px, 1.5vw, 24px);
 }
 
 
@@ -107,7 +108,7 @@ img {
 button {
   background-color: transparent;
   cursor: pointer;
-
+border-radius: 2px;
 }
 
 button:focus {
@@ -169,3 +170,67 @@ button:focus {
 .sticker-yellow::before {
 -webkit-text-stroke: 0.21em var(--yellow);
 }
+
+
+
+
+
+
+   /* Mobile (max-width: 767px) */
+@media (max-width: 767px) {
+    .hero-container {
+    width: 100%;
+    max-width: 100%;
+  }
+     .layout-grid {
+       --layout-columns-count: 4;
+       --layout-columns-gap: 4vw;
+        --layout-margin: 4vw;
+   }
+
+
+h1 span {
+text-align: center  ;
+   
+}
+
+h2 {
+  font-family: manhattan;
+  font-size: 6vw;
+  line-height: 110%;
+}
+
+h3 {
+  font-family: manhattan;
+  font-size: 3vw;
+}
+
+h4 {
+    font-family: futurism;
+  font-size: 2vw;
+}
+
+body {
+  font-family: futurism;
+  font-size: 1.5vw;
+}
+
+}
+
+
+/* Tablet (max 1023px) */
+@media (max-width: 1023px) {
+  h1 { font-size: clamp(32px, 10vw, 72px); }
+  h2 { font-size: clamp(24px, 7vw, 48px); }
+  h3 { font-size: clamp(18px, 5vw, 32px); }
+  h4 { font-size: clamp(16px, 4vw, 24px); }
+}
+
+/* Mobile (max 767px) */
+@media (max-width: 767px) {
+  h1 { font-size: clamp(100px, 22vw, 56px); }
+  h2 { font-size: clamp(22px, 8vw, 40px); }
+  h3 { font-size: clamp(18px, 6vw, 28px); }
+  h4 { font-size: clamp(16px, 3vw, 22px); }
+}
+

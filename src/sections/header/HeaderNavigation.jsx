@@ -77,7 +77,7 @@ const navItems = [
               <ul className="navbar-parent">
                 {navItems.map((item, index) => (
                   <li
-                    key={item}
+                    key={`${index}-item`}
                     className={`child-${['one', 'two', 'three', 'four', 'five'][index]} nav-items`}
                   >
                     <a 

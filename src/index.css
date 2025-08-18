@@ -28,9 +28,7 @@ body {
   place-items: center;
 }
 
-h1 {
-  line-height: 1.1;
-}
+
 
 button {
   border: 1px solid transparent;
@@ -43,22 +41,22 @@ button {
   transition: border-color 0.25s;
 }
 button:hover {
-  border-color: #646cff;
+  border-color: transparent;
 }
 button:focus,
 button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+  outline: 0px auto -webkit-focus-ring-color;
 }
 
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
-    background-color: #ffffff;
+    background-color: var(--bg-color);
   }
   a:hover {
     color: #747bff;
   }
   button {
-    background-color: #f9f9f9;
+    background-color:transparent;
   }
 }

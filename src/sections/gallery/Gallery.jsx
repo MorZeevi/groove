@@ -14,9 +14,10 @@ import img6 from '../../assets/image/gallery/img_6.png';
 import recordImg from '../../assets/image/record.png';
 import afterSocks from '../../assets/image/after.png';
 import beforeSocks from '../../assets/image/before.png';
+import { SplitText } from 'gsap/SplitText';
 
 // Register ScrollTrigger plugin
-gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(ScrollTrigger, SplitText);
 
 export default function Gallery() {
   const galleryRef = useRef(null);
@@ -25,11 +26,19 @@ export default function Gallery() {
   const textPathRef = useRef(null);
   const svgContainerRef = useRef(null);
 
+
   useGSAP(() => {
     // Text Path Animation with ScrollTrigger - Fixed only within container
     const textPath = textPathRef.current;
     const svgContainer = svgContainerRef.current;
     const container = containerRef.current;
+
+
+        const galleryTitle = new SplitText(".galley-des", {
+            type: "chars",
+        });
+
+        
     
     if (textPath && svgContainer && container) {
       // Set initial position
@@ -45,9 +54,9 @@ export default function Gallery() {
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: container,
-          start: "top top",
           end: "bottom bottom",
           scrub: 1,
+          start: "top top",
           onUpdate: (self) => {
             // Keep the SVG fixed in viewport while scrolling through container
             const progress = self.progress;
@@ -105,6 +114,28 @@ export default function Gallery() {
         }
       });
 
+      const titleTl = gsap.timeline({
+      
+    scrollTrigger: {
+      trigger: container,
+      start: () => `top bottom-=${Math.round(innerHeight * 0.3)}`, 
+      toggleActions: "play none none reverse",
+  }
+      });
+
+
+
+        titleTl.fromTo(galleryTitle.chars, {     
+            autoAlpha: 0,
+            scale: 0,
+            transformOrigin: "center center",    
+        }, {
+            duration: 0.8,
+            scale: 1,          
+            autoAlpha: 1,    
+            stagger: 0.05,   
+            ease: "back.out(1.7)",
+        });
       // Animate the text along the path
       tl.fromTo(textPath, {
         attr: { startOffset: "200%" }
@@ -217,6 +248,7 @@ const parts = text.split("|").map(s => s.trim()).filter(Boolean);
           >
             <defs>
               <path 
+               startOffset="200%" 
       id="textPath1" 
               d="M5.5,7.5C162.3,84.6,360.6,15.5,518.8,89.9c31.5,14.8,60.3,35,92.1,49.2,43.3,19.3,90.7,27.2,137.7,33.7,76.6,10.7,155.1,18.1,230.8,2.4,44.1-9.2,86.1-26,129.5-38,110.1-30.6,228.2-29.8,339.2-2.7,174.5,42.7,338.8,149.5,517.8,134.5"
               />
@@ -226,7 +258,7 @@ const parts = text.split("|").map(s => s.trim()).filter(Boolean);
 
 
 <text className="text-benefits" direction="rtl" unicodeBidi="plaintext">
-  <textPath ref={textPathRef} href="#textPath1" dominantBaseline="baseline">
+  <textPath ref={textPathRef} href="#textPath1" dominantBaseline="baseline"  startOffset="200%" >
     {parts.map((phrase, i) => (
       <tspan key={i} style={{
           fill: colors[i % colors.length],
@@ -237,34 +269,6 @@ const parts = text.split("|").map(s => s.trim()).filter(Boolean);
     ))}
   </textPath>
 </text>
-
-            {/* Text with inline styles
-            <text className="text-benefits">
-              <textPath 
-                ref={textPathRef}
-                href="#textPath1" 
-                ominantBaseline="baseline"
-              >
-    
-       
-              
-               איכות פרימיום   📢 100% כותנה ממוחזרת   ‧₊˚♪ 𝄞₊˚⊹     מעוצבים על ידי מעצבים מקומיים     <img src={recordImg} /> ⭐       מתנה מגניבה
-              </textPath>
-
-                      <textPath 
-                ref={textPathRef}
-                href="#textPath1" 
-                ominantBaseline="baseline"
-              >
-    
-       
-              
-         בבב
-              </textPath> */}
-
-
-          
-            {/* </text> */}
           </svg>
         </div>
 

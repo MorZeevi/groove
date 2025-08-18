@@ -1,5 +1,5 @@
 .footer-container {
-    height: 50vh; 
+    height: 35vh; 
     width: 100vw;
     background-color: var(--dark-purple);
     color: var(--baby-blue);
@@ -62,7 +62,7 @@ color: var(--dark-purple);
        flex-direction: row;
        align-items: center;
     gap: 0.2rem;
-     grid-column: 5/ span 10;
+     grid-column: 6/ span 10;
      grid-row: 3;
       gap: 6rem;
 
@@ -70,10 +70,15 @@ color: var(--dark-purple);
 }
 
 .footer-icon-wrapper svg {
+    height: 35px;
+    width: 35px;
     fill: var(--pink);
 }
+
 .footer-icon-wrapper {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
 }
