@@ -89,3 +89,28 @@ background-color: var(--baby-blue);
 .insta-icon-wrapper svg {
   fill: var(--dark-purple);
 }
+
+
+@media (max-width: 767px) {
+
+
+
+      .follow-us-btn {
+
+        width: 50vw;
+
+      }
+
+      .follow-right {
+        padding: 0 8px;
+      }
+
+      .follow-left {
+        font-size: 18px;
+      }
+      
+      .insta-title {
+        font-size: 80px;
+      }
+
+    }

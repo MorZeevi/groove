@@ -139,3 +139,12 @@ height:100%;
   opacity: 1;
   filter: none;
 }
+
+/* ellipse(142vw 107vw at 50% 89vh) */
+
+@media (max-width: 767px) {
+  .best-container {
+    height: 130vh; 
+    clip-path: ellipse(127vw 100vw at 50% 82vh)
+}
+}

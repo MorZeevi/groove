@@ -37,7 +37,9 @@
 }
 
 .nav-brand {
-  display: table;
+  /* display: table; */
+  display: flex;
+  justify-content: center;
   text-decoration: none;
   color: inherit;
   font-size: 3rem;
@@ -45,8 +47,8 @@
 }
 
 
-.nav-brand span{
-  font-size: 3rem;
+.nav-brand div{
+  font-size: 2rem;
   color: var(--pink);
 }
 
@@ -107,7 +109,7 @@
 
 .hamburger-line.line-3.open {
   transform: rotate(-45deg);
-  bottom: 50%;
+  bottom: 40%;
   transform-origin: center;
 }
 
@@ -206,7 +208,7 @@
   
   .navigation-inner-items {
     position: fixed;  /* Fixed positioning for mobile menu */
-    top: 85px;  /* Below the header */
+    top: 60px;  /* Below the header */
     left: 0;
     right: 0;
     background-color:var(--purple);
@@ -254,8 +256,8 @@
 
 
 .btn-access {
-      height: 15px;
-      padding: 0;
+      /* height: 15px; */
+      /* padding: 0; */
 }
 
   .navigation-header.menu-open .navigation-inner-items {
@@ -298,4 +300,5 @@ body.menu-open {
 /* Add smooth scrolling for the whole page */
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }

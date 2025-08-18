@@ -14,9 +14,6 @@ import img6 from '../../assets/image/gallery/img_6.png';
 import recordImg from '../../assets/image/record.png';
 import afterSocks from '../../assets/image/after.png';
 import beforeSocks from '../../assets/image/before.png';
-
-import beforeSocksMobile from '../../assets/image/before-socks-mobile.png';
-import afterSocksMobile from '../../assets/image/after-socks-mobile.png';
 import { useResponsiveGSAP } from '../../hooks/useResponsiveGSAP';
 import { SplitText } from 'gsap/SplitText';
 
@@ -208,7 +205,7 @@ useResponsiveGSAP(({isDesktop, isTablet, isMobile }) => {
         comparisonSection.querySelector(".afterImage img"), 
         { yPercent: 100, x: 0 }, 
         { yPercent: 0 }, 
-0
+        0
       );
     }
 
@@ -314,11 +311,11 @@ const parts = text.split("|").map(s => s.trim()).filter(Boolean);
         </div>
 
         <div ref={comparisonSectionRef} className="comparisonSection">
-          <div className="pairs-img beforeImage">
-            <img src={beforeSocksMobile} alt="socks-with-pairs-before"/>
+          <div className="pairs-img">
+            <img src={beforeSocks} alt="socks-with-pairs-before"/>
           </div>
           <div className="pairs-img afterImage">
-            <img src={afterSocksMobile} alt="socks-with-pairs-after"/>
+            <img src={afterSocks} alt="socks-with-pairs-after"/>
           </div>
         </div>
       </div>

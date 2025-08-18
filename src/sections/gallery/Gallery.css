@@ -55,7 +55,6 @@ grid-row-gap: 20rem !important;
   padding-bottom: 100%;
  
 }
-
 .afterImage {
   position: absolute;
   overflow: hidden;
@@ -73,11 +72,6 @@ grid-row-gap: 20rem !important;
   object-fit: cover;
 }
 
-.beforeImage {
-    position: absolute;
-  overflow: hidden;
-  top: 0;
-}
 
 .galley-des {
   text-align: center;
@@ -103,6 +97,17 @@ grid-row-gap: 20rem !important;
            /* Mobile (max-width: 767px) */
 @media (max-width: 767px) {
 
+        .comparisonSection {
+        display: none;
+      
+      }
+
+      .text-benefits  textPath {
+          font-size: 140px;
+          /* fill: var(--purple); */
+          letter-spacing: 0.3rem;
+          
+        }
 
 .my-gallery {
 grid-row-gap: 10rem !important;
@@ -110,7 +115,7 @@ grid-row-gap: 10rem !important;
 
 /* scatter images across the 4 columns & rows */
 .my-gallery img:nth-child(1) {
-  grid-column: 1 / span 1;
+  grid-column: 1 / span 2;
   grid-row: 1;
 }
 
@@ -144,18 +149,6 @@ grid-row-gap: 10rem !important;
 
 /* Tablet (max 1023px) */
 @media (max-width: 1023px) {
-
-}
-
-/* Mobile (max 767px) */
-@media (max-width: 767px) {
-
-      .text-benefits  textPath {
-          font-size: 120px;
-          /* fill: var(--purple); */
-          letter-spacing: 0.3rem;
-          
-        }
 
 }
 

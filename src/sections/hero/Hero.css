@@ -76,11 +76,11 @@ border-radius: 2px;
 @media (max-width: 767px) {
 
       .hero-img {
-         position: absolute;
-         width: 100vw;
-         height: 60vh;
-         top: 35%;
-         right: 0;
+     position: absolute;
+        width: 100vw;
+        height: 30vh;
+        bottom: 100%;
+        top: 35%;
       }
 
 
@@ -93,7 +93,7 @@ border-radius: 2px;
         
                     height: 70vh;
                     max-height: 70vh;
-                            grid-template-rows: 50px 24vh 10vh 1fr 1fr 50px;
+                            grid-template-rows: 50px 25vh 10vh 1fr 1fr 50px;
          }
 
 
@@ -123,6 +123,8 @@ border-radius: 2px;
             border-radius: 2px;
              grid-row: 5;
          justify-self: center;
+         color: var(--dark-purple);
+         border:none;
 
            background: linear-gradient(
     45deg,
