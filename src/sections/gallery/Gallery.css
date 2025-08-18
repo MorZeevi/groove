@@ -70,7 +70,13 @@ grid-row-gap: 20rem !important;
   width: 100%;
   height: 100%;
   position: absolute;
-  object-fit: contain;
+  object-fit: cover;
+}
+
+.beforeImage {
+    position: absolute;
+  overflow: hidden;
+  top: 0;
 }
 
 .galley-des {

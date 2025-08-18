@@ -107,11 +107,20 @@ tl.fromTo(heroImgRef.current, {
   { autoAlpha: 1, y: 0, duration: 0.6, ease: "expo.out" },
   ">+0.1"                                  // after subtitle finishes
 ).to(".CTA-btn", {
-  yPercent: 100,                           // slide out (down) by its own height
+  yPercent: 50,                           // slide out (down) by its own height
   duration: 0.6,
   ease: "expo.in",
   // clearProps: "transform"    // optional: remove inline transform after
-}, "-=0.5");     
+}, "-=0.5");  
+
+if (isMobile) {
+    tl.to(".CTA-btn", {
+  yPercent: 2,             // gentle up/down movement
+  duration: 3,              // slower for smooth floating
+  ease: "power1.inOut",     // soft easing
+  repeat: -1,               // infinite loop
+  yoyo: true})    
+}
 
 
 

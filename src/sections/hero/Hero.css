@@ -116,13 +116,21 @@ border-radius: 2px;
 
 
             .CTA-btn {
-               font-size: 4vw;
+               font-size: 5vw;
             width: 80%;
             padding: 1vh;
             align-self: center;
             border-radius: 2px;
              grid-row: 5;
          justify-self: center;
+
+           background: linear-gradient(
+    45deg,
+    var(--baby-blue),
+    var(--purple),
+    var(--pink)
+  );
+  animation: gradientShift 4s ease infinite;
 
             }
 
