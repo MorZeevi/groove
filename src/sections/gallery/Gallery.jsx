@@ -28,7 +28,7 @@ export default function Gallery() {
   const svgContainerRef = useRef(null);
 
 
-  useResponsiveGSAP(({ isMobile, isDesktop }) => {
+useResponsiveGSAP(({isDesktop, isTablet, isMobile }) => {
     // Text Path Animation with ScrollTrigger - Fixed only within container
     const textPath = textPathRef.current;
     const svgContainer = svgContainerRef.current;
@@ -263,7 +263,7 @@ const parts = text.split("|").map(s => s.trim()).filter(Boolean);
     {parts.map((phrase, i) => (
       <tspan key={i} style={{
           fill: colors[i % colors.length],
-          textShadow: isMobile ? 0 : `0 0 2px ${colors[i % colors.length]}` // use same color for glow
+          textShadow: `0 0 2px ${colors[i % colors.length]}` // use same color for glow
         }}>
         {phrase + " "}
       </tspan>
