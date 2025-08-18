@@ -25,7 +25,7 @@ export default function Gallery() {
   const comparisonSectionRef = useRef(null);
   const containerRef = useRef(null);
   const textPathRef = useRef(null);
-  const svgContainerRef = useRef(null);
+  const svgContainerRef = useRef(null);w
 
 
   useResponsiveGSAP(({ isMobile, isDesktop }) => {
@@ -263,7 +263,7 @@ const parts = text.split("|").map(s => s.trim()).filter(Boolean);
     {parts.map((phrase, i) => (
       <tspan key={i} style={{
           fill: colors[i % colors.length],
-          textShadow: `0 0 2px ${colors[i % colors.length]}` // use same color for glow
+          textShadow: isMobile ? 0 : `0 0 2px ${colors[i % colors.length]}` // use same color for glow
         }}>
         {phrase + " "}
       </tspan>
