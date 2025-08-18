@@ -174,8 +174,9 @@ window.addEventListener("load", () => ScrollTrigger.refresh());
             <div className="hero-content-wrapper box layout-grid" ref={contentWrapperRef}>
                 <div className="hero-content">
                     <h1 id="title-h1">
+                        <div>
                         <span>לגרוב גרביים</span>
-                       <br />
+                        </div>
                        <div className="second-line-title">
                         <span ref={spanRef}>מלאות</span>
                         <span> בגרוב</span>
@@ -192,7 +193,7 @@ window.addEventListener("load", () => ScrollTrigger.refresh());
                             style={{ 
                                 width: '100%',
                                 height: '100%',
-                                display: 'block'
+                                // display: 'block'
                             }}
                         />
                     </div>

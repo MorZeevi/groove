@@ -1,5 +1,6 @@
 .hero-container {
     height: 200vh; 
+        justify-items: center;
     /* width: 100vw; */
 }
 
@@ -87,38 +88,46 @@ border-radius: 2px;
             grid-column: 1/span 4;
             height: 100%;
 
-            display: flex;
+            display: grid;
             justify-content: flex-start;
-            margin-top: 100px;
+        
                     height: 70vh;
+                    max-height: 70vh;
+                            grid-template-rows: 50px 20vh 110px 1fr 1fr 50px;
          }
 
 
-  #record-wrapper {
-    position: absolute;
-    top: 16%;
-    right: 36%;
-    width: 110px;
-    height: 110px;
+#record-wrapper {
+     position:static;
+     display: flex;
+     justify-content: center;
+       margin-top: 5%; 
+       right: 0;
+    grid-row: 3 / 3;
+    justify-self: center;
+    height: 80px;
+    width: 80px;
 }
-
          .subtitle-hero {
             font-size: 4vw;
             text-align: center;
+            grid-row: 4 / 4;
          }
 
 
             .CTA-btn {
-               font-size: 3vw;
-            width: 50%;
+               font-size: 4vw;
+            width: 80%;
             padding: 1vh;
             align-self: center;
             border-radius: 2px;
-
+             grid-row: 5;
+         justify-self: center;
 
             }
 
             #title-h1 {
+               grid-row: 2/ 3;
                text-align: center;
                display: flex;
                flex-direction: column;
