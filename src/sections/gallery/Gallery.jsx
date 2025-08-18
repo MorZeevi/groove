@@ -14,6 +14,7 @@ import img6 from '../../assets/image/gallery/img_6.png';
 import recordImg from '../../assets/image/record.png';
 import afterSocks from '../../assets/image/after.png';
 import beforeSocks from '../../assets/image/before.png';
+import { useResponsiveGSAP } from '../../hooks/useResponsiveGSAP';
 import { SplitText } from 'gsap/SplitText';
 
 // Register ScrollTrigger plugin
@@ -27,7 +28,7 @@ export default function Gallery() {
   const svgContainerRef = useRef(null);
 
 
-  useGSAP(() => {
+  useResponsiveGSAP(({ isMobile, isDesktop }) => {
     // Text Path Animation with ScrollTrigger - Fixed only within container
     const textPath = textPathRef.current;
     const svgContainer = svgContainerRef.current;
