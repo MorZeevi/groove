@@ -25,7 +25,7 @@ export default function Gallery() {
   const comparisonSectionRef = useRef(null);
   const containerRef = useRef(null);
   const textPathRef = useRef(null);
-  const svgContainerRef = useRef(null);w
+  const svgContainerRef = useRef(null);
 
 
   useResponsiveGSAP(({ isMobile, isDesktop }) => {
