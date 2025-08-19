@@ -1,43 +1,47 @@
-.pairs-img {
-
-    width: 100vw;
-  height: 100%;
-}
+/* ComparisonSection.css */
 
 .comparisonSection {
   position: relative;
-  padding-bottom: 100vh;
-  min-height: 600px;
+  /* Stable viewport heights across mobile browsers */
+  height: 100vh;   /* fallback */
+  height: 100svh;  /* small viewport units (iOS 16+) */
+  height: 100dvh;  /* dynamic viewport units (modern) */
+  /* no padding-bottom tricks; pinSpacing is false in JS */
+  min-height: 400px;
 }
-.afterImage {
+
+.pairs-img {
   position: absolute;
+  inset: 0;           /* top:0 right:0 bottom:0 left:0 */
+  width: 100vw;
+  height: 100%;
   overflow: hidden;
-  top: 0;
-  /* transform: translate(100%, 0px); */
+}
+
+.pairs-img img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;     /* prevents inline-gap layout shifts */
+  pointer-events: none;
+}
+
+.afterImage {
+  /* sits on top of beforeImage; both are full-bleed */
+  z-index: 2;
 }
 
 .beforeImage {
-  position: absolute;
-  overflow: hidden;
-  top: 0;
-  /* transform: translate(100%, 0px); */
-}
-/* .afterImage img {
-  transform: translate(-100%, 0px);
-} */
-
-.pairs-img img {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  object-fit: cover;
+  z-index: 1;
 }
 
-
-@media (max-width: 767px) { 
-
+/* Mobile tweaks */
+@media (max-width: 767px) {
   .pairs-img img {
-    object-fit: contain;
+    object-fit: cover; /* keep your original intent for mobile */
+    background: var(--baby-blue);    /* optional: letterbox color so contain looks clean */
+  }
 }
 
-}

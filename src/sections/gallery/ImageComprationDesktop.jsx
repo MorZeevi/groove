@@ -1,5 +1,5 @@
 // ComparisonSection.jsx
-import React, { useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useResponsive, useResponsiveGSAP } from '../../hooks/useResponsive';
@@ -11,31 +11,51 @@ import './ComparisonSection.css';
 
 gsap.registerPlugin(ScrollTrigger);
 
+// Helps prevent iOS address-bar resize from causing "jump"
+ScrollTrigger.config({ ignoreMobileResize: true });
+
 const ComparisonSection = () => {
   const { isMobile } = useResponsive();
   const comparisonSectionRef = useRef(null);
 
-  useResponsiveGSAP(({ /* isDesktop, isTablet, isMobile */ }) => {
+  // refresh ST after images load to avoid layout shift
+  useEffect(() => {
+    const imgs = Array.from(
+      comparisonSectionRef.current?.querySelectorAll('img') || []
+    );
+    let loaded = 0;
+    const onLoad = () => {
+      loaded += 1;
+      if (loaded === imgs.length) ScrollTrigger.refresh();
+    };
+    imgs.forEach(img => {
+      if (img.complete) onLoad();
+      else img.addEventListener('load', onLoad, { once: true });
+    });
+    return () => imgs.forEach(img => img.removeEventListener('load', onLoad));
+  }, []);
+
+  useResponsiveGSAP(() => {
     const section = comparisonSectionRef.current;
     if (!section) return;
 
     const afterWrap = section.querySelector('.afterImage');
     const afterImg  = section.querySelector('.afterImage img');
 
-    // reset to a known state before building the timeline (important when resizing)
+    // reset
     gsap.set([afterWrap, afterImg], { xPercent: 0, yPercent: 0, autoAlpha: 1 });
 
-    // If your page uses a transformed scroller on mobile, force transform pinning:
-    // const pinType = ScrollTrigger.isTouch ? 'transform' : 'fixed';
+    const pinType = ScrollTrigger.isTouch ? 'transform' : 'fixed';
 
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: section,
-        start: 'center center',
-        end: 'bottom top',
+        start: 'top top',
+        end: '+=100%',              // animate across one viewport height
         scrub: true,
         pin: true,
-        pinSpacing: true,
+        pinType,
+        pinSpacing: true,          // we manage spacing via section height, avoids jump
         anticipatePin: 1,
         invalidateOnRefresh: true
       },
@@ -45,14 +65,12 @@ const ComparisonSection = () => {
     tl.fromTo(afterWrap, { yPercent: -100 }, { yPercent: 0 })
       .fromTo(afterImg,  { yPercent:  100 }, { yPercent: 0 }, 0);
 
-    // cleanup only this section's trigger/timeline
     return () => {
       tl.scrollTrigger?.kill();
       tl.kill();
     };
   }, { scope: comparisonSectionRef });
 
-  // keep responsive assets, animation is identical
   const beforeSrc = isMobile && beforeSocksMobile ? beforeSocksMobile : beforeSocks;
   const afterSrc  = isMobile && afterSocksMobile  ? afterSocksMobile  : afterSocks;
 
