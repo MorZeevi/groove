@@ -174,7 +174,7 @@ useResponsiveGSAP(({isDesktop, isTablet, isMobile}) => {
           skewSetter(0);
         },
         onEnterBack: () => {
-          skewSetter(clamp(currentVelocity / -10));
+          skewSetter(clamp(currentVelocity / -50));
         },
         onLeaveBack: () => {
           skewSetter(0);
@@ -208,40 +208,25 @@ useResponsiveGSAP(({isDesktop, isTablet, isMobile}) => {
             pointerEvents: 'none',
           }}
         >
-          <svg 
-            viewBox="0 0 1975.253 184.288" 
-            style={{
-              width: '100%',
-              height: '100%',
-              maxWidth: '100vw'
-            }}
-          >
-            <defs>
-              <path 
-               startOffset="220%" 
-      id="textPath1" 
-              d="M5.5,7.5C162.3,84.6,360.6,15.5,518.8,89.9c31.5,14.8,60.3,35,92.1,49.2,43.3,19.3,90.7,27.2,137.7,33.7,76.6,10.7,155.1,18.1,230.8,2.4,44.1-9.2,86.1-26,129.5-38,110.1-30.6,228.2-29.8,339.2-2.7,174.5,42.7,338.8,149.5,517.8,134.5"
-              />
-            </defs>
-            
-            
+      <svg viewBox="0 0 1975.253 184.288" style={{ width: '100%', height: '100%', maxWidth: '100vw' }}>
+  <defs>
+    <path
+      id="textPath1"
+      d="M5.5,7.5C162.3,84.6,360.6,15.5,518.8,89.9c31.5,14.8,60.3,35,92.1,49.2,43.3,19.3,90.7,27.2,137.7,33.7,76.6,10.7,155.1,18.1,230.8,2.4,44.1-9.2,86.1-26,129.5-38,110.1-30.6,228.2-29.8,339.2-2.7,174.5,42.7,338.8,149.5,517.8,134.5"
+    />
+  </defs>
 
-
-<text className="text-benefits" direction={isMobile ? "ltr" : "rtl"} unicodeBidi="plaintext">
-  
-  <textPath ref={textPathRef} href="#textPath1" dominantBaseline="baseline"  startOffset="300%" >
-    
-    {parts.map((phrase, i) => (
-      <tspan key={i} style={{
-          fill: colors[i % colors.length],
-          textShadow: isMobile ? null : `0 0 3px ${colors[i % colors.length]}` // use same color for glow
-        }}>
-        {phrase + " "}
-      </tspan>
-    ))}
-  </textPath>
-</text>
-          </svg>
+  <text className="text-benefits" direction="rtl" unicodeBidi="plaintext">
+    {/* Use xlinkHref for iOS compatibility */}
+    <textPath ref={textPathRef} xlinkHref="#textPath1" startOffset="0" dominantBaseline="baseline" textAnchor="start">
+      {parts.map((phrase, i) => (
+        <tspan key={i} style={{ fill: colors[i % colors.length] }}>
+          {phrase + ' '}
+        </tspan>
+      ))}
+    </textPath>
+  </text>
+</svg>
         </div>
 
         <h2 className="galley-des">מה אנחנו הכי אוהבים בגרביים שלנו</h2>

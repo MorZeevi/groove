@@ -27,6 +27,8 @@ background-color: var(--baby-blue);
 .follow-us-btn {
   display: flex;
   justify-self: center;
+
+    align-items: center;
   width: 60%;
   background-color: white;
   border-width: 2px;

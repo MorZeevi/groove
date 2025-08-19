@@ -165,7 +165,7 @@ gsap.fromTo(
   { xPercent: 0, rotation: 0 },
   {
   xPercent: -70,
-      rotation: isMobile? 0 : 30,
+      rotation: isMobile? 0 : -30,
     ease: "none",
     scrollTrigger: {
       trigger: hero.current,
