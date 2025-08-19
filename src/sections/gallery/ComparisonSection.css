@@ -15,6 +15,13 @@
   top: 0;
   /* transform: translate(100%, 0px); */
 }
+
+.beforeImage {
+  position: absolute;
+  overflow: hidden;
+  top: 0;
+  /* transform: translate(100%, 0px); */
+}
 /* .afterImage img {
   transform: translate(-100%, 0px);
 } */
@@ -28,10 +35,9 @@
 
 
 @media (max-width: 767px) { 
-  /* Optional: use small-viewport units to avoid iOS URL bar jumps */
-  .pairs-img,
-  .afterImage {
-    height: 100svh;
-  }
+
+  .pairs-img img {
+    object-fit: contain;
+}
 
 }

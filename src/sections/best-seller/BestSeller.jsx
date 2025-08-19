@@ -26,7 +26,7 @@ gsap.registerPlugin(MorphSVGPlugin, SplitText, ScrollTrigger);
 
 export default function BestSeller() {
     const [itemNum, setItemNum] = useState(0);
-    const { isMobile, isDesktop } = useResponsive();
+    const { isMobile, } = useResponsive();
 
 
     
@@ -97,9 +97,7 @@ const pizzaSocksArr = [
 ]
 
 
-    
 
-    // Get current item based on itemNum with proper cycling
     const getCurrentItem = () => {
         const index = ((itemNum % pizzaSocksArr.length) + pizzaSocksArr.length) % pizzaSocksArr.length;
         return pizzaSocksArr[index];
@@ -261,7 +259,7 @@ gsap.fromTo(
                         speed={600}
                           breakpoints={{
                                 0:   { slidesPerView: 1.3, spaceBetween: 16 },
-                                640: { slidesPerView: 2,   spaceBetween: 20 },
+                                767: { slidesPerView: 2,   spaceBetween: 20 },
                                 1024:{ slidesPerView: 3,   spaceBetween: 24 },
                             }}
                                 coverflowEffect={{
