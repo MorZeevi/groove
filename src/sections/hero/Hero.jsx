@@ -6,7 +6,7 @@ import { useGSAP } from '@gsap/react';
 import { useResponsive, useResponsiveGSAP } from '../../hooks/useResponsive';
 
 import recordImg from '../../assets/image/record.png';
-import heroImg from '../../assets/image/hero-img.png';
+import heroImg from '../../assets/image/hero.png';
 
 import './Hero.css'
 
