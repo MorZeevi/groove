@@ -60,7 +60,7 @@ export default function Hero() {
         })
         if (isDesktop) {
             tl.to(lastWord, {
-            x: isMobile ? -70 : -100,
+            x: -100,
             duration: 0.8,
             ease: "power2.out",
         }, "+=0.3")
@@ -86,6 +86,7 @@ export default function Hero() {
             duration: 1.5,
             ease: "power2.inOut",
         }, "+=0.5")
+        
         } // PHASE 2: Move content wrapper to the right side
         // 🎵 PHASE 3: Hero image reveal from right
 tl.fromTo(heroImgRef.current, {
@@ -146,7 +147,7 @@ gsap.fromTo(
   { xPercent: 0, rotation: 0 },
   {
   xPercent: 70,
-      rotation: 30,
+      rotation: isMobile? 0 : 30,
     ease: "none",
     scrollTrigger: {
       trigger: hero.current,
@@ -163,8 +164,8 @@ gsap.fromTo(
   q(".hero-content"),
   { xPercent: 0, rotation: 0 },
   {
-//   xPercent: -70,
-      rotation: -30,
+  xPercent: -70,
+      rotation: isMobile? 0 : 30,
     ease: "none",
     scrollTrigger: {
       trigger: hero.current,
