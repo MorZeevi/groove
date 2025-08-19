@@ -82,6 +82,7 @@
     width: 100vw;
     grid-template-rows: 5% 0.5fr 40% auto 5%;
     grid-template-columns: 10vw auto 10vw;
+    margin-bottom: 0;
 }
 
     .location-title {

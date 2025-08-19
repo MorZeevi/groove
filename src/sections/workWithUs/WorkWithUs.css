@@ -137,7 +137,13 @@
         }
 
 
-
+@media (max-width: 767px) {
+      .work-with-us-wrapper {
+     
+            font-size: 120px;
+   
+        }
+}
 /* 
         @media (max-width: 767px) {
 
