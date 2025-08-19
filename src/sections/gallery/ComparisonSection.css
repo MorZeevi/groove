@@ -25,3 +25,13 @@
   position: absolute;
   object-fit: cover;
 }
+
+
+@media (max-width: 767px) { 
+
+  .comparisonSection {
+  position: relative;
+  min-height: 100vh;
+}
+
+}

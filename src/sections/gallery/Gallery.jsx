@@ -281,17 +281,7 @@ useResponsiveGSAP(({isDesktop, isTablet, isMobile}) => {
           </section>
         </div>
 
- 
-        
-{/* 
-        <div ref={comparisonSectionRef} className="comparisonSection">
-          <div className="pairs-img">
-            <img src={beforeSocks} alt="socks-with-pairs-before"/>
-          </div>
-          <div className="pairs-img afterImage">
-            <img src={afterSocks} alt="socks-with-pairs-after"/>
-          </div>
-        </div> */}
+
       </div>
 
             <ImageComprationDesktop /> 
