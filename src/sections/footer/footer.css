@@ -78,11 +78,11 @@ color: var(--dark-purple);
 @media (max-width: 767px) { 
 
     .footer-container {
-        height: 50vh;
+        height: 60vh;
     display: flex;
     align-items: flex-start;
 
-    grid-template-rows: 10% 20% auto  auto 10%;
+    grid-template-rows: 10% 20% auto  auto 20%;
 }
 
 
