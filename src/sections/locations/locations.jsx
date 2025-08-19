@@ -11,6 +11,7 @@ import IsraelMap from '../../assets/svg/Israel-map';
 import './locations.css';
 import storeImg1 from '../../assets/image/store_1.png';
 import storeImg2 from '../../assets/image/store_2.png';
+import { useResponsive, useResponsiveGSAP } from '../../hooks/useResponsive';
 
 gsap.registerPlugin(ScrollTrigger, SplitText, DrawSVGPlugin, MotionPathPlugin);
 
@@ -21,6 +22,7 @@ export default function Locations() {
     const img2Ref = useRef();
     const img1ContainerRef = useRef();
     const img2ContainerRef = useRef();
+    const {isMobile} = useResponsive();
 
     useGSAP(() => {
         const tl = gsap.timeline({
@@ -37,6 +39,7 @@ export default function Locations() {
         const circles = mapRef.current?.querySelectorAll('circle') || [];
         const texts = mapRef.current?.querySelectorAll('text') || [];
 
+        
         // Set initial states for SVG elements
         if (paths.length > 0) {
             gsap.set(paths, {
@@ -187,7 +190,7 @@ tl.fromTo(".location-description", {
     }, { scope: locationWrapperRef.current });
 
     return (
-        <div ref={locationWrapperRef} id="location" className="locations-wrapper layout-grid">
+        <div ref={locationWrapperRef} id="location" className={`locations-wrapper ${!isMobile ? "layout-grid" : ""}`}>
             <h2 className="location-title">בואו לגרוב איתנו <br/>
             בחנות הקרובה לביתכם</h2>
             

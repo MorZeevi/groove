@@ -26,6 +26,10 @@ gsap.registerPlugin(MorphSVGPlugin, SplitText, ScrollTrigger);
 
 export default function BestSeller() {
     const [itemNum, setItemNum] = useState(0);
+    const { isMobile, isDesktop } = useResponsive();
+
+    console.log('####isMo', isMobile);
+    
 
     
     
@@ -204,7 +208,7 @@ gsap.fromTo(
 
     return (
         <div id="new-collection" className="best-container">
-            <div className="content-wrapper layout-grid">
+            <div className={`content-wrapper ${!isMobile ? "layout-grid" : ""}`}>
                 <h2 id="pizza-title">חדש! גרבי פיצה</h2>
                 
                 <button id="prev-arrow" onClick={handlePrev}>
