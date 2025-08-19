@@ -39,9 +39,24 @@
 
 /* Mobile tweaks */
 @media (max-width: 767px) {
-  .pairs-img img {
-    object-fit: cover; /* keep your original intent for mobile */
-    background: var(--baby-blue);    /* optional: letterbox color so contain looks clean */
-  }
+
+  .comparisonSection {
+  position: relative;
+  height: 100vh;   /* fallback */
+  height: 100svh;  /* iOS 16+ */
+  height: 100dvh;  /* modern */
+  overflow: hidden; /* prevents inner scroll bounce artifacts */
+}
+
+
+.afterImage,
+.afterImage img,
+.beforeImage,
+.beforeImage img {
+  will-change: transform;
+  transform: translateZ(0);           /* force a compositor layer */
+  backface-visibility: hidden;
+  -webkit-font-smoothing: antialiased; /* helps Safari repaint artifacts */
+}
 }
 
