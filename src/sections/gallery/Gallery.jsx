@@ -227,14 +227,14 @@ useResponsiveGSAP(({isDesktop, isTablet, isMobile}) => {
             
 
 
-<text className="text-benefits" direction="rtl" unicodeBidi="plaintext">
+<text className="text-benefits" direction={isMobile ? "ltr" : "rtl"} unicodeBidi="plaintext">
   
   <textPath ref={textPathRef} href="#textPath1" dominantBaseline="baseline"  startOffset="300%" >
     
     {parts.map((phrase, i) => (
       <tspan key={i} style={{
           fill: colors[i % colors.length],
-          textShadow: `0 0 3px ${colors[i % colors.length]}` // use same color for glow
+          textShadow: isMobile ? null : `0 0 3px ${colors[i % colors.length]}` // use same color for glow
         }}>
         {phrase + " "}
       </tspan>

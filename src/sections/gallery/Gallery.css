@@ -78,9 +78,8 @@ margin-top: -20%;
 
 
       .text-benefits  textPath {
-          font-size: 140px;
-          /* fill: var(--purple); */
-          letter-spacing: 0.3rem;
+          font-size: 350px;
+          letter-spacing: 0.5rem;
           
         }
 
