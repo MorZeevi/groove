@@ -47,9 +47,10 @@
 }
 
 
-.nav-brand div{
-  font-size: 2rem;
+.nav-brand span span{
+  font-size: 3rem;
   color: var(--pink);
+  margin-right: -7px;
 }
 
 .nav-brand:hover {

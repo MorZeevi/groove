@@ -55,9 +55,9 @@ const navItems = [
           <div className="flex-bunch">
             <div className="header-main">
               <a href="#" className="nav-brand">
-                <span>גרוב</span>
+                <span>גרוב <span>.</span></span>
               
-              <div>.</div>
+              
               </a>
               
               <div className="br-toggle">

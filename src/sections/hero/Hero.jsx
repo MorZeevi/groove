@@ -3,7 +3,7 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { SplitText } from 'gsap/SplitText';
 import { useGSAP } from '@gsap/react';
-import { useResponsiveGSAP } from '../../hooks/useResponsiveGSAP';
+import { useResponsive, useResponsiveGSAP } from '../../hooks/useResponsive';
 
 import recordImg from '../../assets/image/record.png';
 import heroImg from '../../assets/image/hero-img.png';
@@ -21,7 +21,9 @@ export default function Hero() {
     const heroImgRef = useRef();
 
 
-    useResponsiveGSAP(({isDesktop, isTablet, isMobile }) => {
+
+    useResponsiveGSAP(({ isDesktop, isMobile }) => {
+  
         
      // Hide hero image initially
         gsap.set(heroImgRef.current, {
@@ -57,7 +59,7 @@ export default function Hero() {
             ease: "back.out(1.7)",
         })
         if (isDesktop) {
-tl.to(lastWord, {
+            tl.to(lastWord, {
             x: isMobile ? -70 : -100,
             duration: 0.8,
             ease: "power2.out",
@@ -130,9 +132,9 @@ if (isMobile) {
 const pinST = ScrollTrigger.create({
   trigger: hero.current,
   start: "top top",
-  end: "+=60%",   // נסה 80–120% לפי הטעם
+  end: "+=40%",   // נסה 80–120% לפי הטעם
   pin: true,
-  anticipatePin: 1 // מפחית "קפיצה" בתחילת ה-pin
+  anticipatePin: 1, // מפחית "קפיצה" בתחילת ה-pin
 });
 
 // שאילתה לפי scope

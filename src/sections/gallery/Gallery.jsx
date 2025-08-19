@@ -12,10 +12,11 @@ import img4 from '../../assets/image/gallery/img_4.png';
 import img5 from '../../assets/image/gallery/img_5.png';
 import img6 from '../../assets/image/gallery/img_6.png';
 import recordImg from '../../assets/image/record.png';
-import afterSocks from '../../assets/image/after.png';
-import beforeSocks from '../../assets/image/before.png';
-import { useResponsiveGSAP } from '../../hooks/useResponsiveGSAP';
+
+import { useResponsive, useResponsiveGSAP } from '../../hooks/useResponsive';
 import { SplitText } from 'gsap/SplitText';
+import ImageComprationDesktop from './ImageComprationDesktop';
+// import ImageCompartionMobile from './ImageCompartionMobile';
 
 // Register ScrollTrigger plugin
 gsap.registerPlugin(ScrollTrigger, SplitText);
@@ -27,8 +28,10 @@ export default function Gallery() {
   const textPathRef = useRef(null);
   const svgContainerRef = useRef(null);
 
+  const { isDesktop, isTablet, isMobile } = useResponsive();
 
-useResponsiveGSAP(({isDesktop, isTablet, isMobile }) => {
+
+useResponsiveGSAP(({isDesktop, isTablet, isMobile}) => {
     // Text Path Animation with ScrollTrigger - Fixed only within container
     const textPath = textPathRef.current;
     const svgContainer = svgContainerRef.current;
@@ -150,7 +153,7 @@ useResponsiveGSAP(({isDesktop, isTablet, isMobile }) => {
     const images = galleryRef.current?.querySelectorAll('img');
     if (images) {
       let skewSetter = gsap.quickTo(images, "skewY");
-      let clamp = gsap.utils.clamp(-10, 10);
+      let clamp = gsap.utils.clamp(-2, 2);
       let currentVelocity = 0;
       let scrollTimeout;
 
@@ -160,12 +163,12 @@ useResponsiveGSAP(({isDesktop, isTablet, isMobile }) => {
         end: "bottom top",     
         onUpdate: (self) => {
           currentVelocity = self.getVelocity();
-          skewSetter(clamp(currentVelocity / -10));
+          skewSetter(clamp(currentVelocity / 50));
           
           clearTimeout(scrollTimeout);
           scrollTimeout = setTimeout(() => {
             skewSetter(0);
-          }, 150);
+          }, 50);
         },
         onLeave: () => {
           skewSetter(0);
@@ -181,55 +184,21 @@ useResponsiveGSAP(({isDesktop, isTablet, isMobile }) => {
 
 
 
-    // Comparison section animation
-    const comparisonSection = comparisonSectionRef.current;
-    if (comparisonSection) {
-      let tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: comparisonSection,
-          start: "center center",
-          end: () => "+=" + comparisonSection.offsetWidth,
-          scrub: true,
-          pin: true,
-          anticipatePin: 1
-        },
-        defaults: { ease: "none" }
-      });
-
-      tl.fromTo(
-        comparisonSection.querySelector(".afterImage"), 
-        { yPercent: -100, x: 0 }, 
-        { yPercent: 0 }
-      )
-      .fromTo(
-        comparisonSection.querySelector(".afterImage img"), 
-        { yPercent: 100, x: 0 }, 
-        { yPercent: 0 }, 
-        0
-      );
-    }
-
     return () => {
       ScrollTrigger.getAll().forEach(trigger => trigger.kill());
     };
     
   }, { scope: containerRef });
 
-  const colors = ["var(--pink)", "var(--purple)", "var(--baby-blue)", "var(--yellow)"];
-const text = 'מעוצבות על ידי מעצבים מקומיים |🧶 100% כותנה מצרית | 👃🏻 מנדפות ריח |🧘🏽‍♀️ אורתופדיות'
+  const colors = [ "var(--dark-purple)", "var(--baby-blue)"];
+  const text = 'מעוצבות על ידי מעצבים מקומיים | 100% כותנה מצרית |  מנדפות ריח | אורתופדיות'
 
-const parts = text.split("|").map(s => s.trim()).filter(Boolean);
+  const parts = text.split("|").map(s => s.trim()).filter(Boolean);
 
 
   return (
     <>
-      {/* Add some content before container to test the effect */}
-      {/* <div style={{ height: '100vh', background: '#f0f0f0', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-        <h1>Scroll down to see the animated text</h1>
-      </div> */}
-
-      {/* Main Container with relative positioning */}
-      <div id="about-socks" ref={containerRef} style={{ position: 'relative', minHeight: '200vh' }}>
+      <div id="about-socks" ref={containerRef} style={{ position: 'relative', minHeight: '220vh', }}>
         {/* SVG Text Path Container - will be fixed only within containerRef */}
         <div 
           ref={svgContainerRef}
@@ -249,7 +218,7 @@ const parts = text.split("|").map(s => s.trim()).filter(Boolean);
           >
             <defs>
               <path 
-               startOffset="200%" 
+               startOffset="220%" 
       id="textPath1" 
               d="M5.5,7.5C162.3,84.6,360.6,15.5,518.8,89.9c31.5,14.8,60.3,35,92.1,49.2,43.3,19.3,90.7,27.2,137.7,33.7,76.6,10.7,155.1,18.1,230.8,2.4,44.1-9.2,86.1-26,129.5-38,110.1-30.6,228.2-29.8,339.2-2.7,174.5,42.7,338.8,149.5,517.8,134.5"
               />
@@ -259,11 +228,13 @@ const parts = text.split("|").map(s => s.trim()).filter(Boolean);
 
 
 <text className="text-benefits" direction="rtl" unicodeBidi="plaintext">
-  <textPath ref={textPathRef} href="#textPath1" dominantBaseline="baseline"  startOffset="200%" >
+  
+  <textPath ref={textPathRef} href="#textPath1" dominantBaseline="baseline"  startOffset="300%" >
+    
     {parts.map((phrase, i) => (
       <tspan key={i} style={{
           fill: colors[i % colors.length],
-          textShadow: `0 0 2px ${colors[i % colors.length]}` // use same color for glow
+          textShadow: `0 0 3px ${colors[i % colors.length]}` // use same color for glow
         }}>
         {phrase + " "}
       </tspan>
@@ -310,6 +281,9 @@ const parts = text.split("|").map(s => s.trim()).filter(Boolean);
           </section>
         </div>
 
+ 
+        
+{/* 
         <div ref={comparisonSectionRef} className="comparisonSection">
           <div className="pairs-img">
             <img src={beforeSocks} alt="socks-with-pairs-before"/>
@@ -317,8 +291,10 @@ const parts = text.split("|").map(s => s.trim()).filter(Boolean);
           <div className="pairs-img afterImage">
             <img src={afterSocks} alt="socks-with-pairs-after"/>
           </div>
-        </div>
+        </div> */}
       </div>
+
+            <ImageComprationDesktop /> 
 
 
     </>

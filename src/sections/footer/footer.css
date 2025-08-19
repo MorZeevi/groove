@@ -48,25 +48,18 @@ background-color: var(--pink);
 color: var(--dark-purple);
 }
 
-.footer-icon-wrapper {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
- width: 35px;
 
-    margin-left: 0.5rem;
-}
 
 .icons-footer {
     display: flex;
        flex-direction: row;
-       align-items: center;
-    gap: 0.2rem;
-     grid-column: 6/ span 10;
+       align-items: flex-start;
+    /* gap: 0.2rem; */
+     grid-column: 5/ span 10;
      grid-row: 3;
-      gap: 6rem;
+      gap: 2rem;
 
-      margin-top: 5rem;
+      margin-top: 3rem;
 }
 
 .footer-icon-wrapper svg {
@@ -77,8 +70,7 @@ color: var(--dark-purple);
 
 .footer-icon-wrapper {
     display: flex;
-    flex-direction: column;
-    flex-direction: row;
     align-items: center;
+ flex-direction: row;
     gap: 10px;
 }

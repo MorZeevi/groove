@@ -1,0 +1,27 @@
+.pairs-img {
+
+    width: 100vw;
+  height: 100%;
+}
+
+.comparisonSection {
+  position: relative;
+  padding-bottom: 100vh;
+  min-height: 600px;
+}
+.afterImage {
+  position: absolute;
+  overflow: hidden;
+  top: 0;
+  /* transform: translate(100%, 0px); */
+}
+/* .afterImage img {
+  transform: translate(-100%, 0px);
+} */
+
+.pairs-img img {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  object-fit: cover;
+}

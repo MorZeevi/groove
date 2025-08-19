@@ -76,115 +76,113 @@ export default function Locations() {
         });
 
         // Title animation
-        tl.fromTo(locationTitle.chars, {
-            autoAlpha: 0,
-            scale: 0,
-            transformOrigin: "center center",
-        }, {
-            duration: 0.5,
-            scale: 1,
-            autoAlpha: 1,
-            stagger: 0.05,
-            ease: "back.out(1.7)",
-        });
+   tl.fromTo(locationTitle.chars, {
+  autoAlpha: 0,
+  scale: 0,
+  transformOrigin: "center center",
+}, {
+  duration: 0.35,       // was 0.5
+  scale: 1,
+  autoAlpha: 1,
+  stagger: 0.02,        // was 0.05
+  ease: "back.out(1.4)" // slightly less overshoot = feels snappier
+});
 
-       
+// MAP PATHS (shorter + start earlier)
+if (paths.length > 0) {
+  tl.to(paths, {
+    strokeDashoffset: 0,
+    duration: 0.25,     // was 0.4
+    ease: "power2.inOut",
+    stagger: 0.06       // was 0.1
+  }, "-=0.25");         // was "-=1" (start closer to title end)
+}
 
-        // Map path animations
-        if (paths.length > 0) {
-            tl.to(paths, {
-                strokeDashoffset: 0,
-                duration: 0.4,
-                ease: "power2.inOut",
-                stagger: 0.1
-            }, "-=1");
-        }
+// MAP CIRCLES (shorter + tighter stagger + overlap)
+if (circles.length > 0) {
+  tl.to(circles, {
+    scale: 1,
+    opacity: 1,
+    duration: 0.2,      // was 0.3
+    ease: "back.out(1.5)",
+    stagger: 0.1        // was 0.2
+  }, "-=0.2");
+}
 
-        // Map circles animations
-        if (circles.length > 0) {
-            tl.to(circles, {
-                scale: 1,
-                opacity: 1,
-                duration: 0.5,
-                ease: "back.out(1.7)",
-                stagger: 0.2
-            }, "-=1");
-        }
+// MAP TEXTS (shorter + overlap)
+if (texts.length > 0) {
+  tl.to(texts, {
+    scale: 1,
+    opacity: 1,
+    duration: 0.2,      // was 0.3
+    ease: "back.out(1.5)",
+    stagger: 0.08       // was 0.2
+  }, "-=0.15");
+}
 
-        // Map texts animations
-        if (texts.length > 0) {
-            tl.to(texts, {
-                scale: 1,
-                opacity: 1,
-                duration: 0.8,
-                ease: "back.out(1.7)",
-                stagger: 0.2
-            });
-        }
+// IMAGE 1 (shorter)
+tl.fromTo(img1ContainerRef.current, {
+  clipPath: "polygon(0 0, 0 0, 0 100%, 0 100%)",
+}, {
+  clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)",
+  duration: 0.35,       // was 0.5
+  ease: "power2.inOut",
+}, "-=0.35")
+.to(img1Ref.current, {
+  scale: 1,
+  duration: 0,
+  ease: "power2.out",
+}, "-=0.6");
 
-        // IMAGE REVEAL ANIMATIONS
-        // First image - reveal from left to right
-        tl.fromTo(img1ContainerRef.current, {
-            clipPath: "polygon(0 0, 0 0, 0 100%, 0 100%)",
-        }, {
-            clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)",
-            duration: 1.2,
-            ease: "power2.inOut",
-        }, "-=0.5")
-        .to(img1Ref.current, {
-            scale: 1,
-            duration: 0,
-            ease: "power2.out",
-        }, "-=1");
+// IMAGE 2 (shorter + overlap more)
+tl.fromTo(img2ContainerRef.current, {
+  clipPath: "polygon(100% 0, 100% 0, 100% 100%, 100% 100%)",
+}, {
+  clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)",
+  duration: 0.35,       // was 0.5
+  ease: "power2.inOut",
+}, "-=0.35")
+.to(img2Ref.current, {
+  scale: 1,
+  duration: 0.15,       // was 0.2
+  ease: "power2.out",
+}, "<")
+.fromTo(".store-text", {
+  autoAlpha: 0,
+  y: 24,                // was 30
+}, {
+  autoAlpha: 1,
+  y: 0,
+  duration: 0.35,       // was 0.5
+  ease: "power2.out",
+}, "-=0.35");
 
-        // Second image - reveal from right to left
-        tl.fromTo(img2ContainerRef.current, {
-            clipPath: "polygon(100% 0, 100% 0, 100% 100%, 100% 100%)",
-        }, {
-            clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)",
-            duration: 1.2,
-            ease: "power2.inOut",
-        }, "-=1")
-        .to(img2Ref.current, {
-            scale: 1,
-            duration: 1,
-            ease: "power2.out",
-        }, "<").fromTo(".store-text", {
-            autoAlpha: 0,
-            y: 30,
-           
-        }, {
-            autoAlpha: 1,
-            y: 0,
-            duration: 0.5,
-            ease: "power2.out",
-        }, "-=1");
+// DESCRIPTION POP (shorter pops)
+tl.fromTo(".location-description", {
+  autoAlpha: 0,
+  scale: 0,
+  transformOrigin: "center center",
+}, {
+  autoAlpha: 1,
+  scale: 1,
+  duration: 0.35,       // was 0.6
+  ease: "power2.out",
+}, "-=0.25")
+.to(".location-description", {
+  rotation: 15,
+  duration: 0.1,        // was 0.15
+  ease: "power2.inOut",
+  yoyo: true,
+  repeat: 1,
+}, ">")
+.to(".location-description", {
+  scale: 1.04,          // was 1.05
+  duration: 0.14,       // was 0.2
+  ease: "power2.out",
+  yoyo: true,
+  repeat: 1,
+}, "<");
 
-         // Location description - fun pop animation
-        tl.fromTo(".location-description", {
-            autoAlpha: 0,
-            scale: 0,
-            transformOrigin: "center center",
-        }, {
-            autoAlpha: 1,
-            scale: 1,
-            duration: 0.6,
-           ease: "power2.out",
-        }, "-=0.4")
-        .to(".location-description", {
-            rotation: 15,
-            duration: 0.15,
-            ease: "power2.inOut",
-            yoyo: true,
-            repeat: 1,
-        }, ">")
-        .to(".location-description", {
-            scale: 1.05,
-            duration: 0.2,
-            ease: "power2.out",
-            yoyo: true,
-            repeat: 1,
-        }, "<");
 
     }, { scope: locationWrapperRef.current });
 
