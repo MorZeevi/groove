@@ -99,7 +99,9 @@ background-color: var(--baby-blue);
 
       .follow-us-btn {
 
-        width: 100%;
+        width: 60%;
+        align-self: center;
+        justify-self: center;
 
       }
 
