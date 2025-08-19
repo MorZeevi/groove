@@ -35,6 +35,7 @@ const ComparisonSection = () => {
         end: 'bottom top',
         scrub: true,
         pin: true,
+          pinType: ScrollTrigger.isTouch ? 'transform' : 'fixed', 
         // pinType, // uncomment if you need forced transform pinning
         pinSpacing: true,
         anticipatePin: 1,

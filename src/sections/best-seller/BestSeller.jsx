@@ -28,10 +28,7 @@ export default function BestSeller() {
     const [itemNum, setItemNum] = useState(0);
     const { isMobile, isDesktop } = useResponsive();
 
-    console.log('####isMo', isMobile);
-    
 
-    
     
     const svgRef = useRef(null);
     const pathRef = useRef(null);
@@ -178,7 +175,7 @@ gsap.fromTo(
 
     const currentItem = getCurrentItem();
 
-    useResponsiveGSAP(({ isMobile }) => {
+    useResponsiveGSAP(() => {
         const splitTitle = new SplitText("#pizza-title", {
             type: "words, chars",
         })

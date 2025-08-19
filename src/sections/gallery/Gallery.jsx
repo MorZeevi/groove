@@ -16,7 +16,6 @@ import recordImg from '../../assets/image/record.png';
 import { useResponsive, useResponsiveGSAP } from '../../hooks/useResponsive';
 import { SplitText } from 'gsap/SplitText';
 import ImageComprationDesktop from './ImageComprationDesktop';
-// import ImageCompartionMobile from './ImageCompartionMobile';
 
 // Register ScrollTrigger plugin
 gsap.registerPlugin(ScrollTrigger, SplitText);
