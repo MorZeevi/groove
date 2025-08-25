@@ -141,9 +141,9 @@ useResponsiveGSAP(({isDesktop, isTablet, isMobile}) => {
         });
       // Animate the text along the path
       tl.fromTo(textPath, {
-        attr: { startOffset: "100%" }
+        attr: { startOffset: "200%" }
       }, {
-           attr: { startOffset: '0%' },
+        attr: { startOffset: "-80%" },
         ease: "none"
       });
     }
@@ -217,10 +217,10 @@ useResponsiveGSAP(({isDesktop, isTablet, isMobile}) => {
 
   <text className="text-benefits">
     {/* Use xlinkHref for iOS compatibility */}
-    <textPath ref={textPathRef}  textAnchor="end" xlinkHref="#textPath1" href="#textPath1" startOffset="50%" spacing="auto" >
+    <textPath ref={textPathRef} xlinkHref="#textPath1" href="#textPath1" startOffset="100" dominantBaseline="baseline" textAnchor="start">
       {parts.map((phrase, i) => (
         <tspan key={i} style={{ fill: colors[i % colors.length] }} direction="rtl" unicode-bidi="bidi-override">
-       {'\u2067'}{phrase}{'\u2069\u00A0'}
+          {phrase + ' '}
         </tspan>
       ))}
     </textPath>
@@ -228,7 +228,7 @@ useResponsiveGSAP(({isDesktop, isTablet, isMobile}) => {
 </svg>
         </div>
 
-        <h2 className="galley-des">למה אנחנו כל כך אוהבים את הגרביים שלנו?</h2>
+        <h2 className="galley-des"></h2>
         
         <div className="gallery-container">
           <section ref={galleryRef} className="my-gallery layout-grid">

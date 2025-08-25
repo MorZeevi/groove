@@ -5,10 +5,12 @@
 #about-socks {
   position: 'relative';
   min-height: 200vh;;
-  margin-top: -40vh;
+  margin-top: -30vh;
 
 
 }
+
+
 
 .my-gallery {
 grid-row-gap: 20rem !important;
@@ -60,6 +62,12 @@ margin-top: -20%;
 .benefits-content {
   height: 50vh;
 }
+
+.text-benefits {
+  direction: rtl;
+  unicode-bidi: plaintext; /* עדיף על bidi-override לעברית בספארי */
+}
+
 
 
 
