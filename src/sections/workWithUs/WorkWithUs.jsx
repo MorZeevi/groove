@@ -234,7 +234,7 @@ export default function WorkWithUs() {
   }, []);
 
   return (
-      <div className={`work-container-wrapper ${!isMobile ? "layout-grid" : ""}`} ref={containerRef}>
+      <div id="work-with-us" className={`work-container-wrapper ${!isMobile ? "layout-grid" : ""}`} ref={containerRef}>
       <div className="star-bg" />
 
       <div
