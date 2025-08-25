@@ -57,6 +57,8 @@ margin-top: -20%;
 .galley-des {
   text-align: center;
   margin-bottom:30% ;
+  padding-inline-start: 10vw;
+   padding-inline-end: 10vw;
 }
 
 .benefits-content {
@@ -106,7 +108,7 @@ grid-row-gap: 10rem !important;
 }
 
 .my-gallery img:nth-child(3) {
-  grid-column: 4 / span 1;
+  grid-column: 3 / span 2;
   grid-row: 3;
 }
 

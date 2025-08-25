@@ -166,7 +166,7 @@
 .work-with-us-des {
       grid-column: 2/span 4;
             grid-row : 5;
-            align-self: end;
+            align-self: start;
 }
 
         .star-bg {

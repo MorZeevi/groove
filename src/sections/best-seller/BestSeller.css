@@ -89,6 +89,8 @@ height:100%;
       grid-column: 10 / span 4;
       transform: rotate(20deg);
       top: 2%;
+      z-index: 99;
+     pointer-events: none;
 }
 
 .swiper {
