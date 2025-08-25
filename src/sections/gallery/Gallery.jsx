@@ -219,7 +219,7 @@ useResponsiveGSAP(({isDesktop, isTablet, isMobile}) => {
     {/* Use xlinkHref for iOS compatibility */}
     <textPath ref={textPathRef} xlinkHref="#textPath1" href="#textPath1" startOffset="0" dominantBaseline="baseline" textAnchor="start">
       {parts.map((phrase, i) => (
-        <tspan key={i} style={{ fill: colors[i % colors.length] }}>
+        <tspan key={i} style={{ fill: colors[i % colors.length] }} direction="rtl" unicode-bidi="bidi-override">
           {phrase + ' '}
         </tspan>
       ))}
@@ -228,7 +228,7 @@ useResponsiveGSAP(({isDesktop, isTablet, isMobile}) => {
 </svg>
         </div>
 
-        <h2 className="galley-des">מה אנחנו הכי אוהבים בגרביים שלנו</h2>
+        <h2 className="galley-des">מה אנחנו הכי אוהבים בגרביים שלנו?</h2>
         
         <div className="gallery-container">
           <section ref={galleryRef} className="my-gallery layout-grid">

@@ -52,7 +52,7 @@ const ComparisonSection = () => {
         trigger: section,
         start: 'top top',
         end: '+=100%',              // animate across one viewport height
-        scrub: 0.1,
+        scrub: isMobile ? 1.5 : 0.1,
         pin: true,
         pinType,
         pinSpacing: true,          // we manage spacing via section height, avoids jump
