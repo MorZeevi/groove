@@ -45,7 +45,6 @@ const ComparisonSection = () => {
     // reset
     gsap.set([afterWrap, afterImg], { xPercent: 0, yPercent: 0, autoAlpha: 1 });
 
-    const pinType = ScrollTrigger.isTouch ? 'transform' : 'fixed';
 
     const tl = gsap.timeline({
       scrollTrigger: {
@@ -54,7 +53,7 @@ const ComparisonSection = () => {
         end: '+=100%',              // animate across one viewport height
         scrub: 0.1,
         pin: true,
-        pinType,
+        pinType: 'fixed',
         pinSpacing: true,          // we manage spacing via section height, avoids jump
         anticipatePin: 1,
         invalidateOnRefresh: true
