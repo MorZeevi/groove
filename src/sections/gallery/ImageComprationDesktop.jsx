@@ -54,7 +54,7 @@ const ComparisonSection = () => {
         end: '+=100%',              // animate across one viewport height
         scrub: isMobile ? 1.5 : 0.1,
         pin: true,
-        pinType,
+        pinType: 'transform',
         pinSpacing: true,          // we manage spacing via section height, avoids jump
         anticipatePin: 1,
         invalidateOnRefresh: true
