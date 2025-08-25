@@ -3,11 +3,8 @@
 }
 
 #about-socks {
-  position: 'relative';
   min-height: 200vh;;
-  margin-top: -30vh;
-
-
+  margin-top: -50vh;
 }
 
 .my-gallery {
@@ -64,9 +61,8 @@ margin-top: -20%;
 
 
     .text-benefits  textPath {
-          font-size: 8vw;
+          font-size: 12vw;
           font-family: manhattan;
-          /* fill: var(--purple); */
           letter-spacing: 0.5rem;
           
         }
@@ -122,6 +118,6 @@ grid-row-gap: 10rem !important;
 
 /* Tablet (max 1023px) */
 @media (max-width: 1023px) {
-
+  
 }
 

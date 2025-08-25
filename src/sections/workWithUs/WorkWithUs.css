@@ -13,7 +13,7 @@
     
     .work-with-us-wrapper {
             grid-column: 8/ span 10;
-            grid-row: 4/9;
+            grid-row: 4/8;
             background-color: transparent;
             display: grid;
             /* grid-template: 1fr / 1fr; */
@@ -29,7 +29,7 @@
 
         .work-with-us-des {
            grid-column: 8/ span 10;
-            grid-row: 8;
+            grid-row: 9;
             text-align: center;
         }
 
@@ -200,6 +200,15 @@
         }
 
 }
+
+/* Tablet (max 1023px) */
+@media (max-height: 800px) {
+       .work-with-us-des {
+
+            grid-row: 10;
+        }
+}
+
 /* 
         @media (max-width: 767px) {
 

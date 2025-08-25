@@ -88,7 +88,7 @@ height:100%;
      grid-row: 3;
       grid-column: 10 / span 4;
       transform: rotate(20deg);
-      top: 5%;
+      top: 2%;
 }
 
 .swiper {
@@ -140,9 +140,21 @@ height:100%;
   filter: none;
 }
 
+
+@media (min-width: 767px) and (max-width: 1024px) {
+  .best-container {
+    clip-path: ellipse(111vw 100vw at 50% 8vh);
+  }
+
+  .socks-title {
+    top: 15%;
+  }
+}
 /* ellipse(142vw 107vw at 50% 89vh) */
 
 @media (max-width: 767px) {
+
+
 
   .content-wrapper {
     display: grid;
