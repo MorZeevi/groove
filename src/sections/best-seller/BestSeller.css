@@ -141,16 +141,15 @@ height:100%;
 }
 
 
-@media (min-width: 767px) and (max-width: 1024px) {
+@media (min-width: 767px) and (max-width: 1400px) {
   .best-container {
-    clip-path: ellipse(111vw 100vw at 50% 8vh);
+    clip-path: ellipse(111vw 100vw at 50% -5vh);
   }
 
   .socks-title {
     top: 15%;
   }
 }
-/* ellipse(142vw 107vw at 50% 89vh) */
 
 @media (max-width: 767px) {
 

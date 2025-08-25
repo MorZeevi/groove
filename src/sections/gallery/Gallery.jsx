@@ -217,7 +217,7 @@ useResponsiveGSAP(({isDesktop, isTablet, isMobile}) => {
 
   <text className="text-benefits">
     {/* Use xlinkHref for iOS compatibility */}
-    <textPath ref={textPathRef} xlinkHref="#textPath1" href="#textPath1" startOffset="0" dominantBaseline="baseline" textAnchor="start">
+    <textPath ref={textPathRef} xlinkHref="#textPath1" href="#textPath1" startOffset="100" dominantBaseline="baseline" textAnchor="start">
       {parts.map((phrase, i) => (
         <tspan key={i} style={{ fill: colors[i % colors.length] }} direction="rtl" unicode-bidi="bidi-override">
           {phrase + ' '}
