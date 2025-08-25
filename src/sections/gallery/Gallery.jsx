@@ -97,8 +97,8 @@ export default function Gallery() {
     <>
       <div id="about-socks" ref={containerRef} style={{ position: 'relative', minHeight: '220vh' }}>
         <h2 className="galley-des">
-          <div>למה אנחנו כל כך</div>
-          <div>אוהבים את הגרביים שלנו?</div>
+          <div>מזהירים מראש</div>
+          <div>התמונות האלה עלולים לגרום לכם לרצות עוז זוג</div>
         </h2>
         
         <div className="gallery-container">
