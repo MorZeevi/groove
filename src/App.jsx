@@ -7,6 +7,7 @@ import Insta from './sections/insta/Insta';
 import WorkWithUs from './sections/workWithUs/WorkWithUs';
 import Locations from './sections/locations/locations';
 import Footer from './sections/footer/Footer';
+import ImageCompration from './sections/gallery/ImageComprationDesktop';
 
 import { useResponsive, } from '../src/hooks/useResponsive';
 import './App.css'
@@ -20,6 +21,7 @@ function App() {
     <Header />
        <Hero /> 
       <Gallery /> 
+      <ImageCompration />
      <BestSeller />  
      <Locations />
      <Insta />
