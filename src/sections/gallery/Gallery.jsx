@@ -10,7 +10,6 @@ import img2 from '../../assets/image/gallery/img_2.png';
 import img3 from '../../assets/image/gallery/img_3.png';
 import img4 from '../../assets/image/gallery/img_4.png';
 import img5 from '../../assets/image/gallery/img_5.png';
-import recordImg from '../../assets/image/record.png';
 
 import { useResponsive, useResponsiveGSAP } from '../../hooks/useResponsive';
 import { SplitText } from 'gsap/SplitText';
@@ -20,8 +19,9 @@ gsap.registerPlugin(ScrollTrigger, SplitText);
 
 export default function Gallery() {
   const galleryRef = useRef(null);
-  const comparisonSectionRef = useRef(null);
+
   const containerRef = useRef(null);
+  const {isMobile} =useResponsive();
 
   useResponsiveGSAP(({isDesktop, isTablet, isMobile}) => {
     const container = containerRef.current;
@@ -176,7 +176,7 @@ export default function Gallery() {
         </h2>
         
         <div className="gallery-container">
-  <section ref={galleryRef} className="my-gallery layout-grid">
+  <section ref={galleryRef} className={`my-gallery ${isMobile ? '' : 'layout-grid'}`}>
   <div className="gallery-item">
     <img data-speed="0.8" src={img1} alt="socks-img" />
     <div className="gallery-text">

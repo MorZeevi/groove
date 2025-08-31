@@ -135,51 +135,104 @@ padding-bottom: 10rem;
 
 
            /* Mobile (max-width: 767px) */
+
+
+/* Mobile (max-width: 767px) */
 @media (max-width: 767px) {
 
+  /* simpler section spacing on mobile */
+  .my-gallery {
+    display: grid;
+    grid-template-columns: 1fr;
+    row-gap: 3rem;                /* space between items */
+    grid-template-rows: none;     /* let height be auto */
+    padding-bottom: 6rem;
+    grid-row-gap: 4rem !important;
+  }
 
-      .text-benefits  textPath {
-          font-size: 250px;
-          letter-spacing: 0.5rem;
-          
-        }
+    .my-gallery > .gallery-item:nth-child(1) > .gallery-text { 
 
-.my-gallery {
-grid-row-gap: 5rem !important;
+  text-align: center;
+}
+  .my-gallery > .gallery-item:nth-child(2) > .gallery-text { 
+
+  text-align: center;
+}
+  .my-gallery > .gallery-item:nth-child(3) > .gallery-text { 
+
+  text-align: center;
+}
+  .my-gallery > .gallery-item:nth-child(4) > .gallery-text { 
+
+  text-align: center;
 }
 
-/* scatter images across the 4 columns & rows */
-.my-gallery img:nth-child(1) {
-  grid-column: 1 / span 2;
-  grid-row: 1;
+  .my-gallery > .gallery-item:nth-child(5) > .gallery-text { 
+
+  text-align: center;
 }
 
-.my-gallery img:nth-child(2) {
-  grid-column: 2 / span 2;  /* spans columns 2 & 3 */
-  grid-row: 2;
+  /* each card becomes its own mini-grid: text on top, image below */
+  .my-gallery > .gallery-item {
+    display: grid;     /* override display: contents */
+    grid-template-areas:
+      "text"
+      "img";
+    grid-template-columns: 1fr;
+    align-items: start;
+    gap: 0.75rem;                 /* space between title/desc and image */
+    line-height: 100%;
+  }
+
+  /* reset any desktop grid placements */
+  .my-gallery > .gallery-item > img,
+  .my-gallery > .gallery-item > .gallery-text {
+    grid-column: auto !important;
+    grid-row: auto !important;
+  }
+
+  /* text block ABOVE the image */
+  .my-gallery > .gallery-item > .gallery-text {
+    grid-area: text;
+    text-align: center;            /* keep RTL look; change to center if you prefer */
+    padding-inline: 1rem;         /* comfy side padding */
+  }
+
+  /* image BELOW the text */
+  .my-gallery > .gallery-item > img {
+    grid-area: img;
+    justify-self: center;         /* center the image */
+    width: min(92vw, 420px);
+    height: auto;
+    transform: none !important;   /* avoid skew carryover at rest */
+  }
+
+  /* tidy mobile sizing */
+  .gallery-title {
+    font-size:40px;
+    line-height: 1.15;
+  }
+
+  .gallery-desc {
+    font-size: clamp(14px, 4vw, 18px);
+    line-height: 1.4;
+  }
+
+  /* optional: tighten vertical spacing per item */
+  .my-gallery > .gallery-item .gallery-desc + .gallery-desc {
+    margin-top: 0.25rem;
+  }
+
+  .my-gallery > .gallery-item > .gallery-text { text-align: center; }
+
+
+  /* remove all the nth-child mobile placements (now unnecessary) */
+  /* (Your previous per-item grid-column/row rules inside the mobile block can be deleted) */
+
 }
 
-.my-gallery img:nth-child(3) {
-  grid-column: 3 / span 2;
-  grid-row: 3;
-}
 
-.my-gallery img:nth-child(4) {
-  grid-column: 1 / span 2;
-  grid-row: 4;
-}
 
-.my-gallery img:nth-child(5) {
-  grid-column: 3 / span 2;
-  grid-row: 5;
-}
-
-.my-gallery img:nth-child(6) {
-  grid-column: 2 / span 2;
-  grid-row: 6;
-}
-
-}
 
 
 /* Tablet (max 1023px) */

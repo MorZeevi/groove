@@ -13,7 +13,7 @@
 }
 
 .hero-content {
-   grid-column: 2/span 8;
+   grid-column: 1/span 8;
    height: 100%;
 
    display: flex;
