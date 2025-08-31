@@ -225,6 +225,8 @@ window.addEventListener("load", () => ScrollTrigger.refresh());
                 <img src={heroImg} alt="Hero-image-pepole-on-bike" /> 
             </div>
         </div>
+
+ 
          
       
     </>)
