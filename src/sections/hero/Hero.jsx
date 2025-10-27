@@ -215,9 +215,9 @@ window.addEventListener("load", () => ScrollTrigger.refresh());
                     איכות פרימיום, ללא ניצול ו100% כותנה אורגנית.
                 </div>
                 
-                <button className="CTA-btn">
-                    לגרבי הפיצה החדשות שלנו!
-                </button>
+                <a className="CTA-btn" href="#new-collection">
+               לקולקציה החדשה!
+                </a>
                 </div>
             </div>
             
