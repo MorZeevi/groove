@@ -22,6 +22,20 @@
     grid-column: 5/ span 9;
 }
 
+
+.footer-credit {
+    grid-row: 4;
+    grid-column-start: 5;
+    grid-column-end: 12;
+    
+}
+
+.footer-credit a {
+text-decoration: underline;
+ color: var(--baby-blue);
+    
+}
+
 .instgram-icon-footer{
      grid-column: 5/ span 9;
 }
@@ -105,5 +119,14 @@ grid-row:4;
     grid-row: 3;
     grid-column: 1 / span 4;
 }
+
+
+.footer-credit {
+    grid-row: 5;
+    grid-column: 1 / span 4;
+    text-align: center;
+    
+}
+
 
 }

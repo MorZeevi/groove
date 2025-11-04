@@ -34,7 +34,23 @@ export default function Footer() {
 </a>
 <span className="instagram-icon-footer">לוואטסאפ</span>
 </div>
+
+
 </div>
+<div className="footer-credit">
+  <span>© כל הזכויות שמורות 2025 </span>
+  <span>
+ 
+    <a href="https://wa.me/972522937174" target="_blank" rel="noopener noreferrer">
+      Moriz. Studio
+    </a>
+       {' '}
+  </span>
+</div>
+
+
+
+
   {/*
   <div className="newsletter-footer">
     <span>נשבעים לא לשלוח ספאם</span>
