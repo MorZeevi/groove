@@ -204,7 +204,7 @@ export default function Gallery() {
     </div>
   </div>
 
-  <div className="gallery-item">
+  {/* <div className="gallery-item">
     <img data-speed="1.1" src={img4} alt="socks-img" />
     <div className="gallery-text">
       <div className="gallery-title title-4">איכות פרימיום</div>
@@ -220,7 +220,7 @@ export default function Gallery() {
       <p className="gallery-desc">גרביים מעוצבות הן שילוב של שימושיות והפתעה צבעונית – מתנה שתמיד כיף לקבל.</p>
       <p className="gallery-desc">הן מתאימות לכל גיל ואירוע, ומעלות חיוך עוד לפני שפותחים את האריזה.</p>
     </div>
-  </div>
+  </div> */}
 </section>
 
         </div>

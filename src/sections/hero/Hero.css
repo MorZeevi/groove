@@ -87,6 +87,10 @@ margin-top: 3vh;
         top: 35%;
       }
 
+      .hero-img img {
+         object-fit: cover;
+         object-position: top;
+       }
 
          .hero-content {
             grid-column: 1/span 4;
