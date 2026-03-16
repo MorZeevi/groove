@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import Header from '../src/sections/header/HeaderNavigation';
-import Hero from './sections/hero/Hero';
+import NewSection from './sections/newSection/newSection';
 import Gallery from './sections/gallery/Gallery';
 import BestSeller from './sections/best-seller/BestSeller';
 import Insta from './sections/insta/Insta';
@@ -19,8 +19,8 @@ function App() {
   return (
     <>
     <Header />
-       <Hero /> 
-      <Gallery /> 
+       <NewSection />
+      {/* <Gallery />  */}
       <ImageCompration />
      <BestSeller />  
      <Locations />

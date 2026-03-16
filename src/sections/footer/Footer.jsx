@@ -41,8 +41,8 @@ export default function Footer() {
   <span>© כל הזכויות שמורות 2025 </span>
   <span>
  
-    <a href="https://wa.me/972522937174" target="_blank" rel="noopener noreferrer">
-      Moriz. Studio
+    <a href="https://moriz.studio/he" target="_blank" rel="noopener noreferrer">
+      Moriz Studio
     </a>
        {' '}
   </span>
